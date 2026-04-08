@@ -2,17 +2,14 @@
 
 
 > 整合中英文社群資源，涵蓋一代至五代英雄策略
-> 當前進度 S3 末期
-> 指南更新於 2026/03/38
+> 當前進度 S4 初期
+> 指南更新於 2026/04/01
 > ![image](https://hackmd.io/_uploads/S1bfL1Bsbx.png =10%x) **k1000** **NuB 聯盟** 35位以上**中文**玩家！
 > 更多撇步與心得盡在**k1000** **NuB 聯盟**
 聯盟結構![image](https://hackmd.io/_uploads/SyZurwut-e.png =40%x) 歡樂日常 ![image](https://hackmd.io/_uploads/B1eYHwOtZl.png =20%x)
 
 {%youtube NMsEGfL810Q %}
 
-{%youtube NMsEGfL810Q %}
-
-https://youtube.com/shorts/NMsEGfL810Q?feature=share
 ---
 
 
@@ -171,8 +168,11 @@ https://youtube.com/shorts/NMsEGfL810Q?feature=share
 - 獵豹 ![image](https://hackmd.io/_uploads/HkFUDDdKWg.png =8%x)︰提供口糧，提升到開啟技能後不太建議太早做培養。
 - 駝鹿 ![image](https://hackmd.io/_uploads/r1gqDP_YZx.png =8%x)︰打架神寵，有餘力可以突破與培養。
 - 獅子 ![image](https://hackmd.io/_uploads/Sk4pvP_YZg.png =8%x)︰隨機贈與領主材料，建議突破至滿級能縮短 CD 時間，洗練資源做培養至藍色階段。
-- 灰熊 ![image](https://hackmd.io/_uploads/rkjWOP_Fbg.png =8%x)︰打架神寵，建議突破至滿級，洗練資源做培養至藍色階段。
+- 灰熊 ![image](https://hackmd.io/_uploads/rkjWOP_Fbg.png =8%x)︰增加攻擊力，打架神寵，建議突破至滿級，洗練資源做培養至藍色階段。
 - 大野牛 ![image](https://hackmd.io/_uploads/rk5yVgSjWx.png =8%x)︰使小隊容量增加。集結神寵，建議突破至滿級！
+- 大駝鹿 ![image](https://hackmd.io/_uploads/r1EQD3ns-g.png =8%x)︰使集會容量增加。
+- 黑豹 ![image](https://hackmd.io/_uploads/H1aswn3sWg.png =8%x)︰增加殺傷力，打架神寵，建議突破至滿級，洗練資源做培養至藍色階段。
+
 
 
 ## 五、資源管理
@@ -343,6 +343,15 @@ timeline
 | 120天 | 26-28 | ~1800萬 |
 | 150天 | 30 |  |
 
+### 遊戲進度行事曆
+
+| 開服天數 | 大事件 | 核心變化 |
+| -- | -- | -- |
+| 220天 |  🏛️ 戰爭學院解鎖 | 解鎖 T11 兵種科技。|
+| 第 270 天 | ⚔️ 第五代英雄降臨 | 輪盤步兵龍飛、美女槍手 Vivian |
+| 第 280 天 | 🐾 第五代寵物登場 | 大駝鹿（集結容量）、黑豹（殺傷力） |
+| 第 315～320 天 | 黃金 8 級 | 建築等級上限擴充至 FC8。 |
+
 ---
 
 ## 八、常見錯誤（務必避免）
@@ -391,7 +400,7 @@ timeline
 六代開放：Yang + 最佳搭配（待社群驗證）
 ```
 
-> 指南更新於 2026/03/28
+> 指南更新於 2026/04/01
 > ![image](https://hackmd.io/_uploads/S1bfL1Bsbx.png =10%x) **k1000** **NuB 聯盟** 35位以上**中文**玩家！
 > 更多撇步與心得盡在**k1000** **NuB 聯盟**
 聯盟結構![image](https://hackmd.io/_uploads/SyZurwut-e.png =40%x) 歡樂日常 ![image](https://hackmd.io/_uploads/B1eYHwOtZl.png =20%x)
