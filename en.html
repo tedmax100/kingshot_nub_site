@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kingshot F2P Complete Strategy Guide</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters: [{left:'$',right:'$',display:false}]});"></script>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2e3147;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent2: #3b82f6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 24px 16px 60px; }
+
+    header {
+      text-align: center;
+      padding: 32px 16px 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    header h1 { font-size: 2rem; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+    header .meta { color: var(--muted); font-size: 0.9rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+    .alliance-banner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin: 16px 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .video-section { margin: 24px 0; display: flex; justify-content: center; }
+    .video-wrapper {
+      width: 100%;
+      max-width: 540px;
+      aspect-ratio: 9/16;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .video-wrapper iframe { width: 100%; height: 100%; border: none; }
+
+    h2 {
+      font-size: 1.4rem; font-weight: 700; color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 6px; margin: 36px 0 16px;
+    }
+    h3 { font-size: 1.1rem; font-weight: 600; color: #7dd3fc; margin: 24px 0 10px; }
+    h4 { font-size: 1rem; font-weight: 600; color: #a5b4fc; margin: 18px 0 8px; }
+    p { margin: 8px 0; }
+
+    .table-wrap { overflow-x: auto; margin: 12px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th { background: #1e2235; color: var(--accent); padding: 8px 12px; text-align: left; border: 1px solid var(--border); white-space: nowrap; }
+    td { padding: 7px 12px; border: 1px solid var(--border); vertical-align: middle; }
+    tr:nth-child(even) td { background: #14161f; }
+    tr:nth-child(odd) td { background: var(--surface); }
+    tr:hover td { background: #1f2535; }
+    td img, li img, p img { vertical-align: middle; border-radius: 3px; display: inline; margin: 0 2px; }
+
+    ul, ol { margin: 8px 0 8px 20px; }
+    li { margin: 4px 0; }
+
+    blockquote {
+      background: var(--surface);
+      border-left: 3px solid var(--accent2);
+      padding: 10px 16px; margin: 12px 0;
+      border-radius: 0 6px 6px 0; color: var(--muted);
+    }
+
+    code {
+      background: #1e2235; color: #a5f3fc;
+      padding: 1px 6px; border-radius: 4px;
+      font-family: 'Fira Code', monospace; font-size: 0.88em;
+    }
+
+    .mermaid {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 16px; margin: 16px 0; overflow-x: auto;
+    }
+
+    .tier-s { color: #fbbf24; font-weight: 700; }
+    .tier-a { color: #34d399; font-weight: 700; }
+
+    hr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: #f1f5f9; }
+
+    .stage-path {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 14px 18px;
+      font-family: 'Fira Code', monospace; font-size: 0.9em;
+      line-height: 2; margin: 12px 0;
+    }
+    .stage-path .current { color: var(--accent); font-weight: 700; }
+
+    .lang-switch {
+      position: fixed;
+      top: 14px;
+      right: 20px;
+      background: var(--accent);
+      color: #000;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      transition: background 0.15s;
+    }
+    .lang-switch:hover { background: #fbbf24; text-decoration: none; }
+
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.4rem; }
+      h2 { font-size: 1.2rem; }
+      td, th { padding: 5px 8px; font-size: 0.82rem; }
+      .lang-switch { top: 8px; right: 10px; padding: 5px 11px; font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="index.html" class="lang-switch">🌐 中文</a>
+
+<div class="container">
+
+  <header>
+    <h1>⚔️ Kingshot F2P Complete Strategy Guide</h1>
+    <div class="meta">
+      <span>Compiled from EN &amp; CN community resources, covering Gen 1–5 hero strategies</span>
+      <span>｜ Current Progress: S4 Mid</span>
+      <span>｜ Updated 2026/04/25</span>
+    </div>
+  </header>
+
+  <div class="alliance-banner">
+    <img src="https://hackmd.io/_uploads/S1bfL1Bsbx.png" style="height:36px" alt="k1000" />
+    <span><strong>k1000 NuB Alliance</strong> — 45+ Chinese-speaking players! More tips &amp; insights inside <strong>k1000 NuB Alliance</strong></span>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:8px;">
+    <span>Alliance Structure</span>
+    <img src="https://hackmd.io/_uploads/SyZurwut-e.png" style="max-width:260px;border-radius:6px" alt="Alliance Structure" />
+    <span>Daily Fun</span>
+    <img src="https://hackmd.io/_uploads/B1eYHwOtZl.png" style="max-width:130px;border-radius:6px" alt="Daily Fun" />
+  </div>
+
+  <div class="video-section">
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline controls>
+        <source src="nub.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- Table of Contents -->
+  <nav style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin:8px 0 24px;">
+    <p style="color:var(--accent);font-weight:700;margin-bottom:10px;">📋 Table of Contents</p>
+    <ol style="margin:0 0 0 18px;line-height:2.2;">
+      <li><a href="#s1">1. Hero Generation Guide</a></li>
+      <li><a href="#s2">2. Best F2P Strategy</a></li>
+      <li><a href="#s3">3. Formation &amp; Hero Tier List</a></li>
+      <li><a href="#s4">4. Pet Development</a></li>
+      <li><a href="#s5">5. Master Academy</a></li>
+      <li><a href="#s6">6. Resource Management</a></li>
+      <li><a href="#s7">7. Dungeon Trial Troop Ratio Guide</a></li>
+      <li><a href="#s8">8. KingShot 4-Week Rotating Strategy Calendar</a></li>
+      <li><a href="#s9">9. Common Mistakes (Must Avoid)</a></li>
+      <li><a href="#s10">10. Specific Advice for Your Current Progress</a></li>
+      <li><a href="#s11">11. Bundle Purchase Recommendations</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. Hero Generation Guide -->
+  <h2 id="s1">1. Hero Generation Guide</h2>
+
+  <h3>Generation 1 Heroes</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Hero</th><th>Troop Type</th><th>Rating</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Amadeus</strong></td><td>Infantry</td><td><span class="tier-s">S-Tier (Rally)</span></td><td>Only offensive infantry Sig Weapon (Shield of Fate), multiplicative bonus, viable Gen 5+</td></tr>
+      <tr><td><strong>Jabel</strong> <img src="https://hackmd.io/_uploads/By24TBOF-l.png" style="height:28px" /></td><td>Cavalry</td><td><span class="tier-s">S-Tier (Garrison)</span></td><td>Free on Day 2, easiest to max stars, Sig Weapon (Faith Greaves) is a must</td></tr>
+      <tr><td><strong>Chenko</strong> <img src="https://hackmd.io/_uploads/SypM6SdKbg.png" style="height:28px" /></td><td>Cavalry (SR)</td><td><span class="tier-a">A-Tier (Rider)</span></td><td>1st expedition skill +25% Lethality — best rider skill in the game</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Generation 2 Heroes</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Hero</th><th>Troop Type</th><th>Rating</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Zoe</strong> <img src="https://hackmd.io/_uploads/B1u9hrOt-x.png" style="height:28px" /></td><td>Infantry</td><td><span class="tier-s">S-Tier (Garrison)</span></td><td>Free from Hero Roulette, self-heals 40% HP when below 50%, top F2P garrison pick through Gen 5</td></tr>
+      <tr><td><strong>Hilde</strong> <img src="https://hackmd.io/_uploads/B1FY0BdFZe.png" style="height:28px" /></td><td>Cavalry</td><td><span class="tier-s">S-Tier (Rider)</span></td><td>Best offensive expedition skill + healing + silence</td></tr>
+      <tr><td><strong>Marlin</strong> <img src="https://hackmd.io/_uploads/r1jMxU_Kbl.png" style="height:28px" /></td><td>Archer</td><td><span class="tier-s">S-Tier (Rally)</span></td><td>Offensive Sig Weapon (Mistweaver), top-tier rally leader</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Generation 3 Heroes</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Hero</th><th>Troop Type</th><th>Rating</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Petra</strong> <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:28px" /></td><td>Cavalry</td><td><span class="tier-s">S-Tier (Rally)</span></td><td>First cavalry rally Sig Weapon (Book of Fate), highest burst DPS (600% damage potential)</td></tr>
+      <tr><td><strong>Jaeger</strong></td><td>Archer</td><td><span class="tier-a">A-Tier</span></td><td>Strong garrison, +40% team damage buff</td></tr>
+      <tr><td><strong>Eric</strong></td><td>Infantry</td><td><span class="tier-a">A-Tier</span></td><td>Defense specialist</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>★ Generation 4 Heroes (Your Current Stage) — Collect All Three</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Hero</th><th>Troop Type</th><th>Rating</th><th>F2P Advice</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Alcar</strong> <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:28px" /></td><td>Infantry</td><td><span class="tier-s">S-Tier (Garrison)</span></td><td>"Honor Mark" reduces whole team damage by 70% for 2 sec — garrison cornerstone</td></tr>
+      <tr><td><strong>Rosa</strong> <img src="https://hackmd.io/_uploads/rkAHleHo-g.png" style="height:28px" /></td><td>Archer</td><td><span class="tier-s">S-Tier (Rally)</span></td><td>Available from Hero Roulette, fully immune to debuffs — best Gen 4 F2P investment</td></tr>
+      <tr><td><strong>Margot</strong> <img src="https://hackmd.io/_uploads/B1YCglBoWg.png" style="height:28px" /></td><td>Cavalry</td><td><span class="tier-s">S-Tier (Burst)</span></td><td>+25% rally attack for the whole team (same effect as Yeonwoo)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Generation 5 Heroes (Server 200 Days+ Unlock) — Arena Gods</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Hero</th><th>Troop Type</th><th>Rating</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Vivian</strong></td><td>Archer</td><td><span class="tier-s">S-Tier #1 Priority</span></td><td>"Crouching Tiger" permanently +25% enemy damage taken + 50% double-damage chance — godlike offense &amp; defense</td></tr>
+      <tr><td><strong>Thrud</strong></td><td>Cavalry</td><td><span class="tier-s">S-Tier</span></td><td>"Ancestral Guidance" cyclically +25% team damage &amp; damage reduction</td></tr>
+      <tr><td><strong>Long Fei</strong></td><td>Infantry</td><td><span class="tier-a">A-Tier</span></td><td>F2P infantry replacement for Amadeus, 50% damage-reduction chance</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Generation 6 Heroes (Latest)</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Hero</th><th>Troop Type</th><th>Rating</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Yang</strong> <img src="https://hackmd.io/_uploads/SyYRzgHibx.png" style="height:28px" /></td><td>Archer</td><td><span class="tier-s">#1 Priority</span></td><td>Bonus damage + damage-amplification expedition skill; exclusive equipment boosts rally firepower. Rosa's Gen 6 successor.</td></tr>
+      <tr><td><strong>Triton</strong></td><td>—</td><td>TBD</td><td>Limited info</td></tr>
+      <tr><td><strong>Sophia</strong></td><td>—</td><td>TBD</td><td>Limited info</td></tr>
+    </tbody>
+  </table></div>
+
+  <hr />
+
+  <!-- 2. Best F2P Strategy -->
+  <h2 id="s2">2. Best F2P Strategy</h2>
+
+  <h3>Core Principles</h3>
+  <ol>
+    <li><strong>Focus on only 3 core heroes</strong> — do not spread resources thin</li>
+    <li><strong>Join rallies, don't lead them</strong> — F2P power is too low to be rally leader</li>
+    <li><strong>All gems go into the Hero Roulette</strong> — the only exception is buying the 2nd building queue</li>
+  </ol>
+
+  <h3>F2P Hero Development Roadmap</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Stage</th><th>Recommended Lineup</th></tr></thead>
+    <tbody>
+      <tr><td>Early Game</td><td>Howard + Chenko + Quinn</td></tr>
+      <tr><td>Gen 2 Unlocked</td><td>Zoe + Marlin + Jabel</td></tr>
+      <tr><td>Gen 3 Unlocked</td><td>Zoe + Marlin + Petra</td></tr>
+      <tr><td><strong>Gen 4 Unlocked (Now)</strong></td><td><strong>Zoe + Rosa + Petra</strong></td></tr>
+      <tr><td>Gen 5 Unlock (est. June)</td><td>Long Fei + Rosa + Petra</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>F2P Must-Build Heroes (By Priority)</h3>
+  <ol>
+    <li><strong>Jabel</strong> <img src="https://hackmd.io/_uploads/By24TBOF-l.png" style="height:22px" /> — Free, easiest legendary to max stars, for garrison &amp; arena.</li>
+    <li><strong>Zoe</strong> <img src="https://hackmd.io/_uploads/B1u9hrOt-x.png" style="height:22px" /> — F2P offensive infantry, coming to <strong>Hero Recruitment</strong> soon</li>
+    <li><strong>Chenko (SR)</strong> <img src="https://hackmd.io/_uploads/SypM6SdKbg.png" style="height:22px" /> — #1 rider hero, +25% Lethality <img src="https://hackmd.io/_uploads/HktXaHdtWl.png" style="height:22px" />, exceptional value</li>
+    <li><strong>Rosa</strong> <img src="https://hackmd.io/_uploads/SykdnHOFWl.png" style="height:22px" /> — Gen 4 Roulette hero, immune to debuffs, Sig Weapon boosts team Lethality <img src="https://hackmd.io/_uploads/SycM2BOFbe.png" style="height:22px" /></li>
+    <li><strong>Diana (SR)</strong> <img src="https://hackmd.io/_uploads/Syfn3BdYbx.png" style="height:22px" /> — Obtainable via <code>Wilderness Trial</code> event; reduces stamina cost <img src="https://hackmd.io/_uploads/B1wlTSOYWe.png" style="height:22px" />, increases monster march speed <img src="https://hackmd.io/_uploads/HJWZ6S_t-l.png" style="height:22px" />. Max the right-column skills.</li>
+    <li><strong>Yeonwoo (SR)</strong> <img src="https://hackmd.io/_uploads/rJoSyLutZx.png" style="height:22px" /> — +25% team Lethality <img src="https://hackmd.io/_uploads/HkQhaH_tbg.png" style="height:22px" />, +15% research speed <img src="https://hackmd.io/_uploads/rJAnTrdFWe.png" style="height:22px" />.</li>
+    <li><strong>Amane (SR)</strong> <img src="https://hackmd.io/_uploads/ry0xAS_tbg.png" style="height:22px" /> — +25% team Attack <img src="https://hackmd.io/_uploads/B1zwRB_Kbg.png" style="height:22px" />, +50% wounded recovery speed <img src="https://hackmd.io/_uploads/rJsv0SdYWl.png" style="height:22px" />.</li>
+    <li><strong>Hilde (SSR)</strong> <img src="https://hackmd.io/_uploads/B1FY0BdFZe.png" style="height:22px" /> — Currently the only arena healer, plus rally buff (Attack + Defense) <img src="https://hackmd.io/_uploads/r1cykLOFZx.png" style="height:22px" />. Coming to <strong>Hero Recruitment</strong> soon.</li>
+    <li><strong>Margot (SSR)</strong> <img src="https://hackmd.io/_uploads/B1YCglBoWg.png" style="height:22px" /> — +25% whole-team Attack <img src="https://hackmd.io/_uploads/Syx7DxHoWg.png" style="height:22px" />. Others can only send 4 squads to a rally; with Margot, your 5th squad joins as a rider, boosting total damage.</li>
+  </ol>
+
+  <hr />
+
+  <!-- 3. Formation & Hero Tier List -->
+  <h2 id="s3">3. Formation &amp; Hero Tier List</h2>
+
+  <h3>Mode Tier List</h3>
+
+  <p><strong>Rally (Offense) Leader:</strong><br />
+    Zoe <img src="https://hackmd.io/_uploads/B1u9hrOt-x.png" style="height:22px" /> +
+    Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> +
+    Rosa <img src="https://hackmd.io/_uploads/SykdnHOFWl.png" style="height:22px" /> /
+    Marlin <img src="https://hackmd.io/_uploads/r1jMxU_Kbl.png" style="height:22px" />
+  </p>
+  <p><strong>Garrison (Defense) Leader:</strong> Jabel, Zoe, Hilde, Eric, Vivian, Long Fei, Saul</p>
+  <p><strong>Riders (Offensive Rally):</strong> Chenko, Yeonwoo, Amane, Margot, Hilde</p>
+  <p><strong>Riders (Garrison Defense):</strong> Infantry (60%) + Cavalry (30–40%) + Archer (0–10%)</p>
+  <ul>
+    <li>Squad 1: Gordan <img src="https://hackmd.io/_uploads/S1LX7IuK-g.png" style="height:22px" /> + any + any</li>
+    <li>Squad 2: Hilde <img src="https://hackmd.io/_uploads/B1FY0BdFZe.png" style="height:22px" /> + any + any</li>
+  </ul>
+
+  <p><strong>Bear Hunt Leader:</strong><br />
+    Zoe <img src="https://hackmd.io/_uploads/B1u9hrOt-x.png" style="height:22px" /> +
+    Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> +
+    Rosa <img src="https://hackmd.io/_uploads/SykdnHOFWl.png" style="height:22px" /> /
+    Marlin <img src="https://hackmd.io/_uploads/r1jMxU_Kbl.png" style="height:22px" />
+  </p>
+  <blockquote>If you haven't invested in Marlin yet, <strong>don't start now</strong> — her value is now mainly collection and arena.</blockquote>
+
+  <p><strong>Bear Hunt Riders:</strong></p>
+  <ul>
+    <li>Squad 1: Chenko <img src="https://hackmd.io/_uploads/SypM6SdKbg.png" style="height:22px" /> + any + any</li>
+    <li>Squad 2: Yeonwoo <img src="https://hackmd.io/_uploads/rJoSyLutZx.png" style="height:22px" /> + any + any</li>
+    <li>Squad 3: Amane <img src="https://hackmd.io/_uploads/ry0xAS_tbg.png" style="height:22px" /> + any + any</li>
+    <li>Squad 4: Margot <img src="https://hackmd.io/_uploads/B1YCglBoWg.png" style="height:22px" /> + any + any</li>
+    <li>Squad 5: Hilde <img src="https://hackmd.io/_uploads/B1FY0BdFZe.png" style="height:22px" /> + any + any</li>
+  </ul>
+
+  <h3>Best Rally Combos</h3>
+  <ol>
+    <li><strong>Petra + Hilde + Rosa</strong> — Max burst DPS</li>
+    <li><strong>Zoe + Petra + Hilde</strong> — Max survivability</li>
+    <li><strong>Alcar + Margot + Rosa</strong> — Best garrison (damage reduction + dodge + debuff immunity)</li>
+  </ol>
+
+  <h3>Troop Ratio Recommendations</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Scenario</th><th>Inf / Cav / Arch</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Offensive Rally</td><td>5:2:3</td><td>50% infantry shields the back row</td></tr>
+      <tr><td>Garrison Defense</td><td>6:2:2 or 7:3:0</td><td>Heavy defense setup</td></tr>
+      <tr><td>Bear Hunt / Trap</td><td>1:1:8</td><td>80% archers maximize damage output</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>
+    <a href="https://tianyun233.github.io/troop-calculator-3.0/" target="_blank">Simple Bear Calculator</a>
+    ｜
+    <a href="https://frakinator.streamlit.app/" target="_blank">Advanced Calculator</a>
+  </p>
+  <p>After selecting your heroes, check the two values shown in the images below and input them into the calculator for a recommended troop ratio (reference only).</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin:10px 0;">
+    <img src="https://hackmd.io/_uploads/Skmm-UuKWl.png" style="max-width:220px;border-radius:6px" alt="Calculator param 1" />
+    <img src="https://hackmd.io/_uploads/HJXAeIOFbg.png" style="max-width:220px;border-radius:6px" alt="Calculator param 2" />
+  </div>
+
+  <h3>Bear Rally Key Mechanics</h3>
+  <ul>
+    <li>All three expedition skills of the rally <strong>leader</strong> activate</li>
+    <li>The entire rally's base Attack and Lethality are determined by the <strong>leader's</strong> stats. The leader's gear, research, and hero stars determine how hard the rally hits.</li>
+    <li>Only the <strong>top 4 riders by skill level</strong> contribute their "1st Expedition Skill." The leader should verify that riders' first heroes are set correctly. Riders' own gear, research, and attack panel are irrelevant — inside a rally, the leader's panel applies.</li>
+    <li>That's why Chenko's 1st expedition skill (+25% Lethality) should be maxed first</li>
+    <li><strong>Gear only applies when you are the rally leader</strong> — your gear has no effect when joining someone else's rally</li>
+    <li><strong>Sig Weapons give multiplicative bonuses</strong>, gear gives additive bonuses → Sig Weapons become more valuable late game</li>
+    <li>Don't send a single troop type. Damage does <strong>not scale linearly</strong> with troop count (diminishing returns). If 10,000 archers deal 1M damage, 40,000 archers (4×) deal only $\sqrt{4} = 2$× = 2M damage. <img src="https://hackmd.io/_uploads/Hk592JroWe.png" style="height:80px;border-radius:4px;margin-left:6px;vertical-align:middle" /></li>
+    <li>Base damage weight by troop type: Infantry ×$\frac{1}{3}$, Cavalry ×$1$, Archer ×$\frac{4}{3}$. This means archers generate the highest base damage per unit of troop capacity. → Max archers first, minimal infantry, cavalry fills the gap.</li>
+  </ul>
+
+  <hr />
+
+  <!-- 4. Pet Development -->
+  <h2 id="s4">4. Pet Development</h2>
+  <ul>
+    <li>Gray Wolf <img src="https://hackmd.io/_uploads/Hy3sLwdt-e.png" style="height:22px" />: Construction speed boost — best early helper before City Hall 30. Breakthrough to max level; no need to invest refine resources.</li>
+    <li>Lynx <img src="https://hackmd.io/_uploads/BJBkPv_FZx.png" style="height:22px" />: Provides extra stamina. Breakthrough to max level; no need to invest refine resources.</li>
+    <li>Bison <img src="https://hackmd.io/_uploads/B18bwvut-x.png" style="height:22px" />: Instantly completes a gathering task. Breakthrough to max level to shorten cooldown; early refines to blue tier. Extremely useful during KvK / Alliance Showdown / Full Mobilization.</li>
+    <li>Cheetah <img src="https://hackmd.io/_uploads/HkFUDDdKWg.png" style="height:22px" />: Provides food rations. Level up to unlock skills but don't invest refines too early.</li>
+    <li>Elk <img src="https://hackmd.io/_uploads/r1gqDP_YZx.png" style="height:22px" />: Combat powerhouse pet — upgrade and refine when you have spare resources.</li>
+    <li>Lion <img src="https://hackmd.io/_uploads/Sk4pvP_YZg.png" style="height:22px" />: Randomly grants lord materials. Breakthrough to max to shorten cooldown; refine to blue tier.</li>
+    <li>Grizzly <img src="https://hackmd.io/_uploads/rkjWOP_Fbg.png" style="height:22px" />: Increases Attack. Combat powerhouse — breakthrough to max, refine to blue tier.</li>
+    <li>Great Bison <img src="https://hackmd.io/_uploads/rk5yVgSjWx.png" style="height:22px" />: Increases squad capacity. Rally god-pet — <strong>must</strong> breakthrough to max!</li>
+    <li>Great Elk <img src="https://hackmd.io/_uploads/r1EQD3ns-g.png" style="height:22px" />: Increases rally capacity.</li>
+    <li>Panther <img src="https://hackmd.io/_uploads/H1aswn3sWg.png" style="height:22px" />: Increases Lethality. Combat powerhouse — breakthrough to max, refine to blue tier.</li>
+  </ul>
+
+  <hr />
+
+  <!-- 5. Master Academy -->
+  <h2 id="s5">5. Master Academy</h2>
+  <p>A recently added system similar to pets, but all skills are passive.</p>
+  <ul>
+    <li><strong>Valora</strong> <img src="https://hackmd.io/_uploads/H1qoNSXAWl.png" style="height:22px" />
+      <ul>
+        <li>Hunting Instinct (Innate): Increases damage dealt to the Giant Bear (self only). If you are the rally leader, only you get this buff — riders do not benefit. Still useful as a rider too.</li>
+        <li>Hunt's Dance: Increases rally capacity for Giant Bear hunts (must-have for rally leaders) — lets more alliance members join your rally for higher hunt scores.</li>
+        <li>Experience Inheritance: Bear hunt rewards grant additional equipment EXP parts.</li>
+        <li><strong>Weapon Mastery</strong>: Bear hunt rewards grant additional Forge Hammers. (<strong>F2P must-max!</strong>)</li>
+        <li>Numerical Advantage: Increases your own march capacity for bear hunts. Useless if your alliance has a <code>march cap</code> restriction.</li>
+      </ul>
+    </li>
+    <li><strong>Pan</strong> <img src="https://hackmd.io/_uploads/H18G8BX0-g.png" style="height:22px" />
+      <ul>
+        <li>Resource Stockpile (Innate): Daily reset — every 120 min of accumulated gathering earns a bonus supply chest. Chests have a chance to contain <strong>Gold</strong>.</li>
+        <li><strong>Falcon Scout</strong>: Daily reset — discover additional Intelligence events.</li>
+        <li><strong>Meal Management</strong>: The 08:00 and 20:00 daily stamina refills grant more than 120 stamina.</li>
+        <li>Construction Plan: Reduces construction time.</li>
+        <li><strong>Special Channel</strong>: Daily reset — extra Mystery Shop refreshes and additional Mystery Badges.</li>
+      </ul>
+    </li>
+    <li><strong>Roman</strong> <img src="https://hackmd.io/_uploads/ry8tvBQC-e.png" style="height:22px" />
+      <ul>
+        <li>Born Fighter (Innate): Each arena battle has a chance to drop a Competition Star Chest. Chests have a chance to contain <strong>Forge Hammers</strong>.</li>
+        <li>Fearless Brave: Guards (small soldiers flanking heroes) gain extra Attack and HP.</li>
+        <li><strong>Savor Victory</strong>: Daily and weekly arena settlement rewards grant extra Arena Coins.</li>
+        <li><strong>March to Glory</strong>: Arena Shop offers discounts and more items to choose from.</li>
+        <li>Center Stage: Heroes in the arena gain increased Attack and HP.</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    Personally, most Master Badges go into <code>Pan</code>. The other two are only leveled to Acquaintance 3 (unlocking the 3rd skill) before circling back.<br />
+    Pan's <strong>Meal Management</strong> — skip entirely if you're a monthly-pass player (you won't lack stamina); F2P players should invest heavily.<br />
+    <strong>Falcon Scout</strong> — max it out: extra Intelligence mission score during KvK and Alliance Showdown, plus a steady trickle of Gold in downtime.<br />
+    <strong>Special Channel</strong> — max it out: more chances to find free and 50%-off Sig Weapon shards and advanced pet refine items.
+  </blockquote>
+
+  <hr />
+
+  <!-- 6. Resource Management -->
+  <h2 id="s6">6. Resource Management</h2>
+
+  <h3>Building Priority</h3>
+  <p>City Hall &gt; Training Ground &gt; Academy &gt; Command Center &gt; Others</p>
+  <ul>
+    <li>Hospital, Kitchen, House → stop upgrading at level 10</li>
+    <li>Resource buildings → no need to upgrade</li>
+    <li>Goal: push <strong>City Hall</strong> to level 30 to unlock T10 troops</li>
+  </ul>
+  <blockquote>Tip: Activate the Gray Wolf skill (<code>Construction Speed</code>) and Decree skill (<code>Accelerate Construction</code>) first. If you also hold the <code>Prime Minister</code> title at the same time, then start the building upgrade — this can cut construction time by ~30%.</blockquote>
+
+  <h3>Research Priority</h3>
+  <p>Command Tactics &gt; Training Equipment &gt; Build Speed &gt; Research Speed &gt; Gathering &gt; Squad Expansion</p>
+
+  <h3>Gear Upgrade Priority</h3>
+  <p>Forge Hammer &amp; Legendary Gear &amp; Mithril investment order: <code>Archer &gt; Infantry &gt; Cavalry</code></p>
+  <ol>
+    <li><strong>Top priority</strong> Archer Lethality (Helmet / Boots) — maximizes your bear-hunt score and damage output, earning more Forge Hammers.</li>
+    <li>Infantry HP (Chest / Gloves)</li>
+    <li>Cavalry Lethality (Helmet / Boots)</li>
+  </ol>
+  <blockquote>Why infantry over cavalry: infantry tanks all incoming damage for the whole army — the longer infantry survives, the more damage archers and cavalry deal.</blockquote>
+
+  <h3>Gem Spending Priority</h3>
+  <ol>
+    <li>2nd Building Queue (permanent, worthwhile micro-spend ~$100)</li>
+    <li>5th Expedition Queue (permanent, most important micro-spend ~$100) — either purchase unlocks the Bank's <code>Daily Savings</code>.</li>
+    <li>Hero Roulette — all remaining gems go here</li>
+    <li><strong>Do NOT spend on</strong>: speed-ups, temporary building queues, cosmetics</li>
+  </ol>
+
+  <h3>Daily Task Checklist</h3>
+  <ul>
+    <li>Claim stamina every 12 hours (08:00 and 20:00)</li>
+    <li>Complete daily quests</li>
+    <li><code>Wandering Shop</code>: buy <code>VIP EXP</code> and discounted speed-ups</li>
+    <li><code>Mystery Shop</code> (free items + discounts) and 50%-off <code>Sig Weapon Shards</code></li>
+    <li><code>Arena Shop</code>: redeem <code>Legendary Hero Gear Custom Box</code></li>
+    <li><code>VIP Shop</code>: redeem <code>Lord Stamina (Drumstick)</code> and Advanced Teleport</li>
+    <li><code>Alliance Shop</code>: daily redeem discounted speed-ups and Advanced Teleport; weekly redeem <code>Pet Breakthrough Material Custom Box</code></li>
+    <li><code>Supremacy Shop</code>: <strong>Pet Medals</strong>, <strong>Universal Master Badge</strong>, <strong>Advanced Pet Refine</strong></li>
+    <li><code>Holy Sword Shop</code>: collect all three hero shards; temporary lord gear / gems when needed</li>
+    <li><code>KvK Shop</code>: Gold, Yellow Fragments</li>
+    <li><code>Tide Shop</code>: Advanced Refine, Pet Medals, temporary lord gear / gems</li>
+    <li><code>Challenge Trial Shop</code>: Mithril, Gear Boxes, Yellow Fragments</li>
+    <li>Participate in alliance events, arena, dungeon trials (preset troops at <code>50:20:30</code>)</li>
+    <li>Keep buildings and research running non-stop</li>
+    <li>Claim all basic event rewards</li>
+    <li>Weekly lord gear / lord gem <code>Enhancement Material Exchange</code></li>
+  </ul>
+
+  <h3>Game Progress Calendar</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Server Day</th><th>Major Event</th><th>Key Change</th></tr></thead>
+    <tbody>
+      <tr><td>Day 220</td><td>🏛️ War Academy Unlocks</td><td>Unlocks T11 troop research.</td></tr>
+      <tr><td>Day 270</td><td>⚔️ Gen 5 Heroes Arrive</td><td>Roulette infantry Long Fei &amp; archer Vivian</td></tr>
+      <tr><td>Day 280</td><td>🐾 Gen 5 Pets Launch</td><td>Great Elk (rally capacity), Panther (Lethality)</td></tr>
+      <tr><td>Day 315–320</td><td>Gold Level 8</td><td>Building level cap expands to FC8.</td></tr>
+    </tbody>
+  </table></div>
+
+  <hr />
+
+  <!-- 7. Dungeon Trial Troop Ratio Guide -->
+  <h2 id="s7">7. 🛡️ Dungeon Trial Troop Ratio Guide</h2>
+
+  <h4>⚔️ Gladiator Arena &amp; Radiant Tower (3-Squad Setup)</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Squad</th><th>Troop Ratio (Inf / Cav / Arch)</th><th>Hero Setup Suggestion</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Squad 1</strong></td><td><strong>60 / 40 / 00</strong></td><td>Place your <strong>strongest infantry &amp; cavalry heroes</strong>; archer hero slot is empty or flexible.</td></tr>
+      <tr><td><strong>Squad 2</strong></td><td><strong>50 / 10 / 40</strong></td><td>Place your <strong>strongest archer hero</strong>, supported by 2nd-tier infantry / cavalry heroes.</td></tr>
+      <tr><td><strong>Squad 3</strong></td><td><strong>50 / 20 / 30</strong></td><td>Place your remaining <strong>strongest heroes</strong>.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h4>🌲 Other Resource Dungeon Setups</h4>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Dungeon</th><th>Troop Ratio (Inf / Cav / Arch)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Life Forest</strong></td><td><strong>50 / 15 / 35</strong></td></tr>
+      <tr><td><strong>Crystal Mine</strong></td><td><strong>60 / 20 / 20</strong></td></tr>
+      <tr><td></td><td><strong>55 / 10 / 35</strong></td></tr>
+      <tr><td><strong>Knowledge Hub</strong></td><td><strong>50 / 20 / 30</strong></td></tr>
+      <tr><td></td><td><strong>55 / 10 / 35</strong></td></tr>
+      <tr><td><strong>Lava Fortress</strong></td><td><strong>60 / 15 / 25</strong></td></tr>
+      <tr><td></td><td><strong>55 / 10 / 35</strong></td></tr>
+    </tbody>
+  </table></div>
+  <p><em>(Note: ratio order is always <strong>Infantry / Cavalry / Archer</strong>)</em></p>
+
+  <hr />
+
+  <!-- 8. KingShot 4-Week Rotating Strategy Calendar -->
+  <h2 id="s8">8. 📅 KingShot 4-Week Rotating Strategy Calendar</h2>
+  <p>KingShot activities follow a 28-day (4-week) cycle. This calendar helps you track daily events and plan resource spending in advance.</p>
+
+  <div class="mermaid">
+timeline
+    title Weeks 1 & 3: Core Resource Build-Up
+    section Weekly Goal: Accumulate resources, stockpile for major events
+    Mon-Tue : Armament 1 : Lord Gear, Gold, Hero Shards, Build/Research Speed-ups
+    Wed-Thu : Officer 1 : Lord Gems, Forge Hammers, Sig Weapons, Train Troops
+    Fri-Sat : Armament 2 : Lord Gear, Gold, Forge Hammers, Build/Research Speed-ups
+    Sun-Mon : Officer 2 : Lord Gear, Shards, Forge Hammers, Sig Weapons
+  </div>
+
+  <p>Collect <strong>basic rewards</strong> only — no need to push for milestones.</p>
+  <p><strong>Week 1 focus:</strong> Complete baseline resource accumulation; stockpile for upcoming major events.</p>
+  <p><strong>Week 3 focus:</strong> Accumulate again in preparation for SVS. Start holding Mithril and Advanced Seals.</p>
+
+  <div class="mermaid">
+timeline
+    title Week 2: Alliance Showdown x Armament/Officer Dual-Track
+    section Early Phase: Steady Buildup
+    Mon Showdown D1 : Armament 1 Gold/Speeds : Focus: gathering (Bison skill), spend Gold on buildings, speed-ups
+    Tue Showdown D2 : Armament 1 Shards/Speeds : Focus: Intelligence events, hero shard star-ups
+    Wed Showdown D3 : Officer 1 Gems/Refine : Focus: lord gem socketing, gathering (Bison skill)
+    Thu Showdown D4 : Officer 1 Troop Surge : Focus: Intelligence events, mass troop training
+    section Sprint Phase: Full Throttle
+    Fri Showdown D5 : Armament 2 Gear/Speeds : Focus: lord gear upgrade, hunt beasts (Wolf skill / Drumstick)
+    Sat Showdown D6 : Armament 2 Full Sprint : Focus: pet breakthrough/refine, hunt beasts
+    Sun Post-Battle : Officer 2 Gear/Shards : Focus: claim all basic rewards, prep for next week
+  </div>
+
+  <blockquote>
+    <strong>Intelligence Timing Trick:</strong> Days 2 and 4 of Alliance Showdown have "Complete Intelligence Events (3,000 pts)." Before the reset (midnight), avoid completing or killing intel targets — wait until after the daily reset (08:00) to claim them and easily pocket the score.
+  </blockquote>
+
+  <div class="mermaid">
+timeline
+    title Week 2: Supreme Lord Week
+    section Core Strategy: Maximize Roulette spins and troop-surge title windows
+    Mon : Gold and Build/Research Speed-ups
+    Tue : Roulette and Research Speed-ups
+    Wed : Roulette and Hero Shard Star-ups
+    Thu : Lord Gems and Troop Surge
+    Fri : Forge Hammers and Sig Weapon Upgrade
+    Sat : Troop Surge with Official Title buff
+    Sun : Pet Breakthrough/Refine and Gathering (Bison skill)
+  </div>
+
+  <p><strong>Week 2 key points:</strong></p>
+  <ul>
+    <li>Tue / Wed: Hit the Roulette up to <code>60 spins</code> each day — 120 spins total over two days</li>
+    <li>Sat: Apply for an Official Title bonus before mass-training troops</li>
+  </ul>
+
+  <blockquote>
+    <strong>Troop Production Tip:</strong> Train <strong>Tier 9 troops</strong> during downtime (shorter build time, accumulates total army fast). On event days that score "Upgrade Troops for XXX pts," focus entirely on <strong>upgrading T9 → T10</strong>, combined with title bonuses and training speed-ups to rack up event points quickly.
+  </blockquote>
+
+  <div class="mermaid">
+timeline
+    title Week 4: Kingdom vs Kingdom (SVS)
+    section Battle Week: Unleash all stockpiled resources, sprint for SVS score
+    Mon : Gold and Build/Research Speed-ups
+    Tue : Roulette and Shard Star-ups and Gathering (Bison skill)
+    Wed : Roulette and Shard Star-ups
+    Thu : Forge Hammers and Gear and Train Troops
+    Fri : Pet Breakthrough and Refine
+    Sat : War Day
+    Sun : Post-War Recovery
+  </div>
+
+  <p><strong>Week 4 key points:</strong></p>
+  <ul>
+    <li><strong>SVS-D2 &amp; D3:</strong> Hit the Roulette up to <code>60 spins</code> each day — 120 total</li>
+    <li><strong>SVS-D4 &amp; D5:</strong> Use stockpiled Mithril, Refined Gold, Hero Shards, and Advanced Seals</li>
+    <li><strong>SVS-D5 (All-Purpose phase):</strong> Multiple tasks completable in one day — highest score day</li>
+    <li><strong>SVS-D6 (War Day):</strong> Kill T11 troops or capture the Sun City</li>
+    <li>The end of Week 4 rolls over into the next cycle's Week 1</li>
+  </ul>
+
+  <h3>Cycle Notes</h3>
+  <ul>
+    <li><strong>Cycle length:</strong> 28 days (4 weeks), repeating</li>
+    <li><strong>Cross-week events:</strong> "Officer Plan ❷" often spills into the following Monday</li>
+    <li><strong>Resource reservation:</strong> Start cutting daily spending at the end of Week 3 to stockpile for SVS</li>
+  </ul>
+
+  <h3>Progress Benchmarks</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Days</th><th>City Hall Level</th><th>Power</th></tr></thead>
+    <tbody>
+      <tr><td>60 days</td><td>22–24</td><td>~6M</td></tr>
+      <tr><td>120 days</td><td>26–28</td><td>~18M</td></tr>
+      <tr><td>150 days</td><td>30</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+
+  <hr />
+
+  <!-- 9. Common Mistakes -->
+  <h2 id="s9">9. Common Mistakes (Must Avoid)</h2>
+  <ol>
+    <li><strong>Spreading hero investment too thin</strong> — stick to 3 core heroes; max each one before moving to the next</li>
+    <li><strong>Evenly distributing skill points</strong> — concentrate on one skill branch</li>
+    <li><strong>Leaving builders idle</strong> — every idle second is wasted</li>
+    <li><strong>Skipping events</strong> — Hall of Governors and similar events have huge rewards; save speed-ups and resources for event periods</li>
+    <li><strong>Ignoring the Mystery Shop</strong> — multiple daily refreshes offer free items</li>
+    <li><strong>Not joining a strong alliance early</strong> — join an active alliance within the first 2 days</li>
+    <li><strong>Spending gems too early</strong> — gems are only for the Hero Roulette</li>
+    <li><strong>Using Emergency Mobilization and Rush simultaneously</strong> — they don't stack; using both at once wastes one</li>
+    <li><strong>Neglecting City Hall upgrades</strong> — City Hall level caps all other buildings</li>
+    <li><strong>Ignoring blue-tier heroes</strong> — blue heroes still have value for gathering</li>
+    <li><strong>Maxing old hero Sig Weapons over investing in new heroes</strong> — don't abandon already-invested heroes too quickly</li>
+    <li><strong>F2P tip</strong>: prioritize <code>Lord Gear</code>, <code>Lord Gems</code>, and <code>Pet Development</code> over hero Sig Weapons. New heroes release every ~2 months and their base stats will outclass older generations, leading to exhausting constant hero swaps.</li>
+    <li><strong>War Academy exchange</strong> — use only <code>Coins</code> to exchange for <code>Gold Dust</code>, never <code>Gold</code>. Gold is a critical upgrade resource; Coins are far less valuable to us.</li>
+  </ol>
+
+  <hr />
+
+  <!-- 10. Specific Advice for Your Current Progress -->
+  <h2 id="s10">10. Specific Advice for Your Current Progress (Gen 4)</h2>
+
+  <h3>Immediate Actions</h3>
+  <ol>
+    <li><strong>Stockpile gems</strong></li>
+    <li>Keep <strong>Zoe + Petra + Rosa</strong> as your core trio</li>
+  </ol>
+
+  <h3>Preparing for Gen 5</h3>
+  <ol>
+    <li>Save gems → pull <strong>Long Fei</strong> as soon as Gen 5 opens</li>
+    <li><strong>Long Fei</strong> can replace Zoe as your F2P infantry pick</li>
+    <li>Alternatively, skip Gen 5 investment and stockpile diamonds early for Gen 6.</li>
+  </ol>
+
+  <h3>Preparing for Gen 6</h3>
+  <ol>
+    <li><strong>Yang</strong> is the top Gen 6 investment target</li>
+    <li>Keep accumulating resources — don't over-invest at the tail end of Gen 4</li>
+  </ol>
+
+  <h3>Your Target Lineup Progression</h3>
+  <div class="stage-path">
+    Gen 1: Jabel + Saul<br />
+    &nbsp;&nbsp;↓<br />
+    Gen 2: Zoe + Marlin + Jabel<br />
+    &nbsp;&nbsp;↓<br />
+    Gen 3: Zoe + Marlin + Petra<br />
+    &nbsp;&nbsp;↓<br />
+    <span class="current">Now (Gen 4): Zoe + Rosa + Petra</span><br />
+    &nbsp;&nbsp;↓<br />
+    Gen 5 opens: Long Fei + Rosa + Petra (Rally) / Vivian for any squad<br />
+    &nbsp;&nbsp;↓<br />
+    Gen 6 opens: Yang + best pairing (pending community testing)
+  </div>
+
+  <hr />
+
+  <!-- 11. Bundle Purchase Recommendations -->
+  <h2 id="s11">11. Bundle Purchase Recommendations</h2>
+
+  <ul>
+    <li>First choice: <strong>Queue Bundle</strong> — one-time ~$100, unlocks the 5th expedition queue and the Bank's daily savings. <strong>Best value in the game.</strong></li>
+    <li>Second choice: <strong>Super Monthly Pass</strong> — ~$330/month, unlocks the 6th queue, 14,000 diamonds, and 600 stamina drumsticks. Most importantly enables <code>Auto-Hunt</code>, freeing your hands during the last two days of Alliance Showdown.</li>
+    <li>Second choice (tied): <strong>Login Gift</strong> — ~$33/week, grants 10 Gold (≈$3.3/Gold), plus 2× yellow universal shards, lord materials, and various 1-hour speed-ups. All high-value items for KvK prep.</li>
+  </ul>
+  <p>Purchasing both monthly bundles totals <code>~$462/month</code>.</p>
+
+  <h3>Gold</h3>
+  <p>Once Gold Level 5 and the War Academy unlock, <code>Gold</code> becomes the key dividing line between power tiers.</p>
+
+  <div class="table-wrap"><table>
+    <thead><tr><th>Bundle</th><th>Cost</th><th>Gold Amount</th><th>Per Gold</th><th>Rating</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Gold Weekly Pass</strong></td><td>$170/week</td><td>94 + 7 chests (guaranteed 129)</td><td>~$1.32</td><td>⭐ Most Recommended</td></tr>
+      <tr><td><strong>Random Chest</strong></td><td>$170 (once every 4 weeks)</td><td>66</td><td>~$2.58</td><td>2nd Recommended</td></tr>
+      <tr><td>Gold Value Bundle</td><td>$170</td><td>40</td><td>~$4.25</td><td>Not Recommended</td></tr>
+      <tr><td>Gold Refinement Plan</td><td>$170</td><td>30 + 1 chest (guaranteed 35)</td><td>~$4.85</td><td>Not Recommended</td></tr>
+    </tbody>
+  </table></div>
+
+  <blockquote>Summary: Gold value ranking — <strong>Weekly Pass &gt; Random Chest &gt; Login Gift &gt; others</strong>.</blockquote>
+
+  <p>Adding the Gold Weekly Pass brings the monthly total to 462$ + 4 weekly passes = <code>~$1,142/month</code>. The weekly pass enters light-spender territory at four figures per month.</p>
+  <p>Adding the Random Gold Chest brings the monthly total to <code>$1,312</code>. This bundle combination keeps spending manageable while maintaining a solid Gold resource base for competitive power.</p>
+
+  <hr />
+
+  <div class="alliance-banner">
+    <img src="https://hackmd.io/_uploads/S1bfL1Bsbx.png" style="height:36px" alt="k1000" />
+    <span>Updated 2026/04/25 ｜ <strong>k1000 NuB Alliance</strong> — 45+ Chinese-speaking players, more tips &amp; insights inside the alliance!</span>
+  </div>
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px;">
+    <span>Alliance Structure</span>
+    <img src="https://hackmd.io/_uploads/SyZurwut-e.png" style="max-width:260px;border-radius:6px" alt="Alliance Structure" />
+    <span>Daily Fun</span>
+    <img src="https://hackmd.io/_uploads/B1eYHwOtZl.png" style="max-width:130px;border-radius:6px" alt="Daily Fun" />
+  </div>
+
+</div>
+
+<script>
+  mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+</script>
+</body>
+</html>

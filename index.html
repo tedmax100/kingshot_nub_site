@@ -118,6 +118,23 @@
     }
     .stage-path .current { color: var(--accent); font-weight: 700; }
 
+    .lang-switch {
+      position: fixed;
+      top: 14px;
+      right: 20px;
+      background: var(--accent);
+      color: #000;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      transition: background 0.15s;
+    }
+    .lang-switch:hover { background: #fbbf24; text-decoration: none; }
+
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
@@ -126,10 +143,14 @@
       header h1 { font-size: 1.4rem; }
       h2 { font-size: 1.2rem; }
       td, th { padding: 5px 8px; font-size: 0.82rem; }
+      .lang-switch { top: 8px; right: 10px; padding: 5px 11px; font-size: 0.78rem; }
     }
   </style>
 </head>
 <body>
+
+<a href="en.html" class="lang-switch">🌐 English</a>
+
 <div class="container">
 
   <header>
