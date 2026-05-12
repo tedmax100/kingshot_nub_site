@@ -118,6 +118,59 @@
     }
     .stage-path .current { color: var(--accent); font-weight: 700; }
 
+    details.hero-detail {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin: 10px 0;
+      overflow: hidden;
+    }
+    details.hero-detail summary {
+      cursor: pointer;
+      padding: 10px 14px;
+      font-weight: 600;
+      color: #a5b4fc;
+      list-style: none;
+      user-select: none;
+      background: #1e2235;
+    }
+    details.hero-detail summary::-webkit-details-marker { display: none; }
+    details.hero-detail summary::before {
+      content: '▶';
+      display: inline-block;
+      margin-right: 8px;
+      font-size: 0.75em;
+      color: var(--accent);
+      transition: transform 0.15s;
+    }
+    details.hero-detail[open] summary::before { transform: rotate(90deg); }
+    details.hero-detail .detail-body { padding: 12px 16px 14px; }
+    details.hero-detail .mode-block { margin: 10px 0; }
+    details.hero-detail .mode-block > strong { color: var(--accent); display: block; margin-bottom: 4px; }
+    details.hero-detail ul { margin: 4px 0 8px 20px; }
+    details.hero-detail li { margin: 5px 0; line-height: 1.6; }
+    details.hero-detail .skill-name { color: #fbbf24; font-weight: 600; }
+    details.hero-detail .ew-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-size: 0.72em;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .invest-summary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent2);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+    }
+    .invest-summary p { margin: 4px 0; }
+
     .lang-switch {
       position: fixed;
       top: 14px;
@@ -253,6 +306,94 @@
       <tr><td><strong>Long Fei</strong></td><td>Infantry</td><td><span class="tier-a">A-Tier</span></td><td>F2P infantry replacement for Amadeus, 50% damage-reduction chance</td></tr>
     </tbody>
   </table></div>
+
+  <h4>Gen 5 In-Depth Analysis (click to expand)</h4>
+
+  <details class="hero-detail">
+    <summary>🛡️ Long Fei — Infantry｜Low-HP Lifesteal Tank</summary>
+    <div class="detail-body">
+      <div class="mode-block">
+        <strong>⚔️ Conquest Mode (Arena)</strong>
+        A lifesteal tank that thrives on counterattacking from low HP. The three skills look contradictory in isolation, but the Signature Weapon ties them together perfectly.
+        <ul>
+          <li><span class="skill-name">Skill 1 — Ambrosia</span>: 4s control immunity + attack speed up.</li>
+          <li><span class="skill-name">Skill 2</span>: Reduces damage taken below 50% HP. Risk: getting one-shot by a single high-burst ultimate right as he crosses the 50% line.</li>
+          <li><span class="skill-name">Skill 3 — Mounted Mover</span>: +48% Attack below 50% HP. Confusing on paper since his base Attack is lower than some Gen 3 infantry.</li>
+          <li><span class="ew-tag">EW</span><span class="skill-name">Strong Brew</span>: <strong>Game-changing!</strong> Extends Skill 1 immunity by 1.5s and converts 15% of damage dealt into healing.</li>
+          <li><strong>Skill synergy</strong>: Skill 1's attack speed → lifesteal frequency; below 50% HP, Skill 3's bonus Attack → lifesteal amount; combined with Skill 2's damage reduction, he's nearly unkillable while low + immune. A classic "very strong when winning, can't recover when losing" hero.</li>
+        </ul>
+      </div>
+      <div class="mode-block">
+        <strong>🛡️ Expedition Mode (Garrison &amp; World Map)</strong>
+        A very stable garrison hero.
+        <ul>
+          <li><span class="ew-tag">EW</span>Defensive: +15% garrison Attack.</li>
+          <li><span class="skill-name">Skill 1</span>: 40% chance to reduce damage by 50%. Mathematically equivalent to "+50% Def or HP" in expected value. <strong>Useless for bear hunts.</strong></li>
+          <li><span class="skill-name">Skill 2</span>: +25% Defense (stable passive).</li>
+          <li><span class="skill-name">Skill 3</span>: Low chance for 200% damage. Testing shows the proc rolls <strong>independently for Infantry, Cavalry, and Archer</strong>. This makes it hard to land peak burst on all three at once, but drastically lowers the floor risk of "never procced all battle" — excellent garrison stability.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="hero-detail">
+    <summary>🐎 Thrud — Cavalry｜Crowd Control + AoE Damage</summary>
+    <div class="detail-body">
+      <div class="mode-block">
+        <strong>⚔️ Conquest Mode (Arena)</strong>
+        A devastating CC + AoE damage dealer in the arena.
+        <ul>
+          <li><span class="skill-name">Skill 1 (Ult) — Axe Flurry</span>: 84% AoE (5 hits). Random targeting, so it <strong>bypasses the enemy front line and hits back-row heroes directly</strong>.</li>
+          <li><span class="ew-tag">EW</span><span class="skill-name">Berserker's Edge</span>: Empowers the ult — 35% chance to add 1s stun, breaking the enemy's casting rhythm.</li>
+          <li><span class="skill-name">Skill 2 — Brutal Throw</span>: 70% AoE + guaranteed 1.5s stun. Her base Attack is very high, so even single hits hurt.</li>
+          <li><span class="skill-name">Skill 3 — Feast of the Pack</span>: Active buff that boosts the entire team's Attack (minions included). Usually fires around the 6s mark, right before the ult lands.</li>
+        </ul>
+      </div>
+      <div class="mode-block">
+        <strong>🛡️ Expedition Mode (Rally / World Map)</strong>
+        Complex kit suited for mixed-troop PvP melees, <strong>very poor for bear hunts</strong>.
+        <ul>
+          <li><span class="ew-tag">EW</span>Offensive (only the 2nd offensive EW in the game): +15% rally Lethality (Wolf Kiss).</li>
+          <li><span class="skill-name">Skill 1 — Battle Hunger</span>: +15% damage and -15% damage taken for Infantry &amp; Archers. Effectively encourages you to <strong>bring less cavalry</strong> to maximize the buff — useful against pure 60/40 comps.</li>
+          <li><span class="skill-name">Skill 2 — Reckless Charge</span>: 20% chance for cavalry to deal +100% extra damage. Testing shows when it procs, the attack <strong>hits Infantry, Cavalry, AND Archers simultaneously</strong>, chipping the enemy back lines before their infantry dies. But the damage scales with how much cavalry you bring — <strong>directly contradicts Skill 1</strong>.</li>
+          <li><span class="skill-name">Skill 3 — Ancestral Guidance</span>: Every 4 cavalry attacks, whole army +25% damage / -25% damage taken (2 rounds). You miss the buff for the first two rounds and need surviving cavalry to stack it — <strong>relatively underwhelming</strong>.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="hero-detail">
+    <summary>🏹 Vivian — Archer｜Back-Row Sniper</summary>
+    <div class="detail-body">
+      <div class="mode-block">
+        <strong>⚔️ Conquest Mode (Arena)</strong>
+        A high-burst back-row sniper.
+        <ul>
+          <li><span class="skill-name">Skill 1 (Ult) — Gilded Barrage</span>: 252% AoE damage. The first skill that <strong>explicitly targets the enemy back row</strong>, also -50% attack speed to the back row (2s) — massively neuters enemy DPS.</li>
+          <li><span class="skill-name">Skill 2 — Lucky Strike</span>: Single-target 140% damage, 50% chance to double. Paired with the highest base Attack in the game, the expected value is enormous.</li>
+          <li><span class="skill-name">Skill 3 — Priceless Shot</span>: Multi-hit AoE (150% total). Not stated, but testing shows it can also reach the back row before the front collapses.</li>
+          <li><span class="ew-tag">EW</span><span class="skill-name">Refined Gunplay</span>: Every time another skill fires, deals up to 70% damage to a random enemy (heroes prioritized). Reinforces her "decapitate the back row" identity.</li>
+        </ul>
+      </div>
+      <div class="mode-block">
+        <strong>🛡️ Expedition Mode (Rally / World Map)</strong>
+        Needs <strong>all three troop types present</strong> and <strong>longer combat</strong> to shine.
+        <ul>
+          <li><span class="ew-tag">EW</span>Defensive: +15% garrison Defense.</li>
+          <li><span class="skill-name">Skill 1 — Crouching Tiger</span>: Increases enemy damage taken. A rare and powerful <strong>multiplicative</strong> debuff — perfect for rally riders.</li>
+          <li><span class="skill-name">Skill 2 — Focus Fire</span>: Every 4 attacks (shared counter across Inf/Cav/Arc), the next attack deals +100% damage. Usually lands on Inf's 2nd, Cav's 3rd, or Arc's 4th attack in round 1. But when the +100% triggers on the 4th attack, the 5th attack <strong>overwrites Skill 1's debuff</strong>, downgrading it to a weak 15% debuff — feels clunky.</li>
+          <li><span class="skill-name">Skill 3 — Trap of Greed</span>: Every 4 archer attacks, next attack deals +60% extra damage. Testing shows the empowered archer attack <strong>hits Inf, Cav, AND Arc simultaneously</strong> (similar to Thrud's Skill 2). Excellent AoE in long PvP, but needs 4 rounds to warm up; if your comp lacks all three troop types (e.g. pure-infantry bear hunt), the value drops sharply.</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <div class="invest-summary">
+    <p><strong style="color:var(--accent);">🎯 Investment Recommendations</strong></p>
+    <p><strong>1. Conquest / Arena focus:</strong> <strong>Thrud</strong> and <strong>Vivian</strong> are must-builds — they introduce the new "ignore the front line, decapitate the back row" meta. <strong>Long Fei</strong> is a high-value pick for F2P / low-spender front-line durability.</p>
+    <p><strong>2. Bear Hunt / PvE focus:</strong> <strong>Skip all three — save your resources!</strong> Their mechanics (forcing mixed troop ratios, multi-troop targeting, defense/survival oriented) don't fit a pure-infantry bear environment and underperform older heroes.</p>
+    <p><strong>3. World Map PvP (Rally / Garrison):</strong> Garrison → <strong>Long Fei</strong> (stability). Rally leader → <strong>Thrud</strong> (multi-troop opening debuff). Rally rider → <strong>Vivian</strong> (strong damage-taken debuff, but needs a mixed Inf/Cav/Arc comp).</p>
+  </div>
 
   <h3>Generation 6 Heroes (Latest)</h3>
   <div class="table-wrap"><table>

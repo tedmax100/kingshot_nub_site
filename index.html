@@ -118,6 +118,59 @@
     }
     .stage-path .current { color: var(--accent); font-weight: 700; }
 
+    details.hero-detail {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin: 10px 0;
+      overflow: hidden;
+    }
+    details.hero-detail summary {
+      cursor: pointer;
+      padding: 10px 14px;
+      font-weight: 600;
+      color: #a5b4fc;
+      list-style: none;
+      user-select: none;
+      background: #1e2235;
+    }
+    details.hero-detail summary::-webkit-details-marker { display: none; }
+    details.hero-detail summary::before {
+      content: '▶';
+      display: inline-block;
+      margin-right: 8px;
+      font-size: 0.75em;
+      color: var(--accent);
+      transition: transform 0.15s;
+    }
+    details.hero-detail[open] summary::before { transform: rotate(90deg); }
+    details.hero-detail .detail-body { padding: 12px 16px 14px; }
+    details.hero-detail .mode-block { margin: 10px 0; }
+    details.hero-detail .mode-block > strong { color: var(--accent); display: block; margin-bottom: 4px; }
+    details.hero-detail ul { margin: 4px 0 8px 20px; }
+    details.hero-detail li { margin: 5px 0; line-height: 1.6; }
+    details.hero-detail .skill-name { color: #fbbf24; font-weight: 600; }
+    details.hero-detail .ew-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-size: 0.72em;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .invest-summary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent2);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin: 14px 0;
+    }
+    .invest-summary p { margin: 4px 0; }
+
     .lang-switch {
       position: fixed;
       top: 14px;
@@ -254,6 +307,94 @@
       <tr><td><strong>龍飛 Long Fei</strong></td><td>步兵</td><td><span class="tier-a">A級</span></td><td>取代 Amadeus 的零氪步兵選擇，50% 減傷機率</td></tr>
     </tbody>
   </table></div>
+
+  <h4>第五代英雄深度解析（點擊展開）</h4>
+
+  <details class="hero-detail">
+    <summary>🛡️ 龍飛 (Long Fei) — 步兵｜殘血反打吸血坦克</summary>
+    <div class="detail-body">
+      <div class="mode-block">
+        <strong>⚔️ 征服模式（競技場）</strong>
+        定位是依賴殘血反打的吸血坦克，三個技能看似互相衝突，但靠專武完美串聯。
+        <ul>
+          <li><span class="skill-name">第一技能 Ambrosia</span>：4 秒免控 + 增加攻擊速度。</li>
+          <li><span class="skill-name">第二技能</span>：血量 &lt; 50% 時降低受到傷害。怕剛進入減傷線就被高爆發大招秒殺。</li>
+          <li><span class="skill-name">第三技能 Mounted Mover</span>：血量 &lt; 50% 時 +48% 攻擊力。但他基礎攻擊力甚至低於三代步兵，光看技能有點困惑。</li>
+          <li><span class="ew-tag">專武</span><span class="skill-name">Strong Brew</span>：<strong>核心質變！</strong>第一技能免控 +1.5 秒，並把造成的傷害 15% 轉化為治療。</li>
+          <li><strong>技能連動</strong>：第一技能的「加攻速」→「吸血頻率」；殘血時第三技能的「加攻擊力」→「吸血量」；再加上第二技能的減傷，他在殘血 + 免控狀態下極難被擊殺。屬於「優勢局極強、劣勢局吸不回來」的英雄。</li>
+        </ul>
+      </div>
+      <div class="mode-block">
+        <strong>🛡️ 遠征模式（駐防與大地圖）</strong>
+        非常穩定的駐防英雄。
+        <ul>
+          <li><span class="ew-tag">專武</span>防禦型，守軍 +15% 攻擊力。</li>
+          <li><span class="skill-name">第一技能</span>：40% 機率降低 50% 傷害。實測效益與「+50% 防禦或血量」公式等價。<strong>對打熊完全沒用。</strong></li>
+          <li><span class="skill-name">第二技能</span>：+25% 防禦力（穩定被動）。</li>
+          <li><span class="skill-name">第三技能</span>：低機率造成 200% 傷害。實測會<strong>對步、騎、弓三種兵種「分開獨立擲骰子判定」</strong>，難以同時打出最高爆發，但也極大降低「整場都沒發動」的下限風險，為駐防提供高穩定度。</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="hero-detail">
+    <summary>🐎 斯露德 (Thrud) — 騎兵｜控場 + 範圍輸出</summary>
+    <div class="detail-body">
+      <div class="mode-block">
+        <strong>⚔️ 征服模式（競技場）</strong>
+        極具破壞力的控場與範圍輸出英雄。
+        <ul>
+          <li><span class="skill-name">第一技能（大招）Axe Flurry</span>：84% 範圍傷害（共 5 次）。隨機鎖定目標，<strong>能越過敵方前排直接打後排英雄</strong>。</li>
+          <li><span class="ew-tag">專武</span><span class="skill-name">Berserker's Edge</span>：強化大招，35% 機率附加 1 秒暈眩，能打斷敵方施法節奏。</li>
+          <li><span class="skill-name">第二技能 Brutal Throw</span>：70% 範圍傷害 + 保證暈眩 1.5 秒。基礎攻擊力極高，單次傷害仍非常痛。</li>
+          <li><span class="skill-name">第三技能 Feast of the Pack</span>：主動 Buff，提升己方全體（含小兵）攻擊力。通常在大招施放前（約第 6 秒）觸發。</li>
+        </ul>
+      </div>
+      <div class="mode-block">
+        <strong>🛡️ 遠征模式（集結 / 大地圖）</strong>
+        技能組合複雜，適合多兵種 PvP 混戰，<strong>極不適合打熊</strong>。
+        <ul>
+          <li><span class="ew-tag">專武</span>攻擊型（全遊戲第二個攻擊型專武）：集結致命力 +15%（Wolf Kiss）。</li>
+          <li><span class="skill-name">第一技能 Battle Hunger</span>：步兵、弓兵 +15% 傷害，並 -15% 受傷。變相鼓勵陣型「不要帶太多騎兵」，能應對純 60/40 陣型。</li>
+          <li><span class="skill-name">第二技能 Reckless Charge</span>：騎兵 20% 機率造成額外 100% 傷害。實測觸發時，這次騎兵攻擊會<strong>同時打在步、騎、弓三兵種上</strong>，能在敵方步兵死光前就削減後排。但傷害又取決於你帶多少騎兵，<strong>與第一技能互相矛盾</strong>。</li>
+          <li><span class="skill-name">第三技能 Ancestral Guidance</span>：騎兵每攻擊 4 次，全軍 +25% 傷害、-25% 受傷（持續兩回合）。前兩回合吃不到增益，且需騎兵存活才能累計，<strong>略為遜色</strong>。</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details class="hero-detail">
+    <summary>🏹 薇薇安 (Vivian) — 弓兵｜後排狙擊手</summary>
+    <div class="detail-body">
+      <div class="mode-block">
+        <strong>⚔️ 征服模式（競技場）</strong>
+        高爆發後排狙擊手。
+        <ul>
+          <li><span class="skill-name">第一技能（大招）Gilded Barrage</span>：252% 範圍傷害，<strong>明確針對敵方後排</strong>，並降低後排 50% 攻速（2 秒），大幅削弱敵方主力輸出。</li>
+          <li><span class="skill-name">第二技能 Lucky Strike</span>：單體 140% 傷害，50% 機率翻倍。搭配她全遊戲最高的基礎攻擊力，期望值極高。</li>
+          <li><span class="skill-name">第三技能 Priceless Shot</span>：多段範圍（總計 150%）。實測也有機會在敵方前排倒下前打到後排。</li>
+          <li><span class="ew-tag">專武</span><span class="skill-name">Refined Gunplay</span>：每次使用其他三技能時，隨機對一名敵人（優先英雄）造成最高 70% 傷害，強化「斬首敵方後排」能力。</li>
+        </ul>
+      </div>
+      <div class="mode-block">
+        <strong>🛡️ 遠征模式（集結 / 大地圖）</strong>
+        需要「全兵種齊全」且「回合數較長」的 PvP 戰鬥才能發揮。
+        <ul>
+          <li><span class="ew-tag">專武</span>防禦型：駐防軍隊 +15% 防禦力。</li>
+          <li><span class="skill-name">第一技能 Crouching Tiger</span>：增加敵人受到的傷害。非常少見且強大的「乘算」減益，<strong>非常適合當參與集結的車員</strong>。</li>
+          <li><span class="skill-name">第二技能 Focus Fire</span>：每 4 次攻擊（步騎弓共用計數）給予下一次 +100% 額外傷害。實測通常落在第一回合的步兵第 2 次、騎兵第 3 次或弓兵第 4 次。但第 5 次攻擊觸發時會<strong>覆蓋掉第一技能的減益</strong>，變成只有 15% 減益的弱化版，<strong>略顯笨重</strong>。</li>
+          <li><span class="skill-name">第三技能 Trap of Greed</span>：弓兵每攻擊 4 次，下一次 +60% 額外傷害。實測觸發時這次弓兵攻擊會<strong>同時打在步、騎、弓三兵種上</strong>（類似斯露德二技能）。長回合 PvP 中極強，但需 4 回合暖機；若陣型沒有完整三兵種（如打熊純步兵），效果大打折扣。</li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <div class="invest-summary">
+    <p><strong style="color:var(--accent);">🎯 資源投資建議</strong></p>
+    <p><strong>1. 主攻競技場（征服）：</strong>必練 <strong>斯露德</strong> 與 <strong>薇薇安</strong>，帶來「無視前排、直接斬首後排」的全新戰術；<strong>龍飛</strong>是無課/微課維持前排硬度的高性價比選擇。</p>
+    <p><strong>2. 主攻打熊等 PvE：</strong><strong>全部跳過，請把資源省下來！</strong> 這三隻機制（打亂兵種比例、針對多兵種、防禦/生存導向）在純步兵打熊環境完全無法發揮，甚至不如前幾代英雄。</p>
+    <p><strong>3. 主攻大地圖 PvP（集結/駐防）：</strong>駐防選 <strong>龍飛</strong>（求穩）｜帶頭集結選 <strong>斯露德</strong>（開場削弱多兵種）｜參與集結（車員）選 <strong>薇薇安</strong>（強易傷 Debuff，需混編三兵種）。</p>
+  </div>
 
   <h3>第六代英雄（最新）</h3>
   <div class="table-wrap"><table>
