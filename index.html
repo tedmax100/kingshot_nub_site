@@ -188,6 +188,54 @@
     }
     .lang-switch:hover { background: #fbbf24; text-decoration: none; }
 
+    /* 側邊目錄 */
+    .toc-cb { display: none; }
+    .toc-hamburger {
+      position: fixed;
+      top: 14px;
+      left: 16px;
+      z-index: 1000;
+      width: 40px;
+      height: 40px;
+      background: var(--surface);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      transition: background 0.15s, color 0.15s;
+    }
+    .toc-hamburger:hover,
+    .toc-cb:checked ~ .toc-hamburger { background: var(--accent); color: #000; }
+    .side-toc {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 270px;
+      max-width: 80vw;
+      height: 100vh;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      box-shadow: 4px 0 24px rgba(0,0,0,0.5);
+      padding: 64px 18px 24px;
+      overflow-y: auto;
+      z-index: 998;
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
+    }
+    .side-toc .toc-title { color: var(--accent); font-weight: 700; font-size: 1rem; margin-bottom: 12px; }
+    .side-toc ol { margin: 0 0 0 18px; line-height: 2.1; }
+    .side-toc a { color: var(--text); }
+    .side-toc a:hover { color: var(--accent2); }
+    .toc-hamburger:hover ~ .side-toc,
+    .side-toc:hover,
+    .toc-cb:checked ~ .side-toc { transform: translateX(0); }
+
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
@@ -203,6 +251,26 @@
 <body>
 
 <a href="en.html" class="lang-switch">🌐 English</a>
+
+<!-- 側邊目錄 -->
+<input type="checkbox" id="toc-cb" class="toc-cb" />
+<label class="toc-hamburger" for="toc-cb" title="目錄" aria-label="開啟目錄">☰</label>
+<nav class="side-toc" id="side-toc">
+  <p class="toc-title">📋 目錄</p>
+  <ol>
+    <li><a href="#s1">一、英雄世代指南</a></li>
+    <li><a href="#s2">二、零氪最佳策略</a></li>
+    <li><a href="#s3">三、陣容推薦與英雄排名</a></li>
+    <li><a href="#s4">四、寵物培養</a></li>
+    <li><a href="#s5">五、大師培養</a></li>
+    <li><a href="#s6">六、資源管理</a></li>
+    <li><a href="#s7">七、秘境試煉各副本部隊比例推薦</a></li>
+    <li><a href="#s8">八、KingShot 四週循環戰略月曆</a></li>
+    <li><a href="#s9">九、常見錯誤（務必避免）</a></li>
+    <li><a href="#s10">十、針對你目前進度的具體建議</a></li>
+    <li><a href="#s11">十一、禮包購買建議</a></li>
+  </ol>
+</nav>
 
 <div class="container">
 
@@ -237,23 +305,6 @@
 
   <hr />
 
-  <!-- 目錄 -->
-  <nav style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin:8px 0 24px;">
-    <p style="color:var(--accent);font-weight:700;margin-bottom:10px;">📋 目錄</p>
-    <ol style="margin:0 0 0 18px;line-height:2.2;">
-      <li><a href="#s1">一、英雄世代指南</a></li>
-      <li><a href="#s2">二、零氪最佳策略</a></li>
-      <li><a href="#s3">三、陣容推薦與英雄排名</a></li>
-      <li><a href="#s4">四、寵物培養</a></li>
-      <li><a href="#s5">五、大師培養</a></li>
-      <li><a href="#s6">六、資源管理</a></li>
-      <li><a href="#s7">七、秘境試煉各副本部隊比例推薦</a></li>
-      <li><a href="#s8">八、KingShot 四週循環戰略月曆</a></li>
-      <li><a href="#s9">九、常見錯誤（務必避免）</a></li>
-      <li><a href="#s10">十、針對你目前進度的具體建議</a></li>
-      <li><a href="#s11">十一、禮包購買建議</a></li>
-    </ol>
-  </nav>
 
   <!-- 一、英雄世代指南 -->
   <h2 id="s1">一、英雄世代指南</h2>
@@ -1191,6 +1242,12 @@ timeline
 
 <script>
   mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+  // 點目錄連結後自動收合側邊欄
+  document.querySelectorAll('.side-toc a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.getElementById('toc-cb').checked = false;
+    });
+  });
 </script>
 </body>
 </html>
