@@ -118,6 +118,65 @@
     }
     .stage-path .current { color: var(--accent); font-weight: 700; }
 
+    /* Hero Org Chart */
+    .hero-org { margin: 20px 0; }
+    .hero-org-section { margin-bottom: 36px; }
+    .hero-org-top { display: flex; flex-direction: column; align-items: center; }
+    .hero-org-gentitle {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, #1e2a45, #111827);
+      border: 2px solid var(--accent); border-radius: 10px;
+      padding: 8px 24px; font-weight: 700; font-size: 1rem;
+      color: var(--accent); position: relative; z-index: 1;
+    }
+    .hero-org-vline {
+      width: 2px; height: 20px; background: var(--border); margin: 0 auto;
+    }
+    .hero-org-hline-wrap {
+      display: flex; align-items: flex-start; width: 100%;
+    }
+    .hero-org-tiers {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      justify-content: center; width: 100%;
+      border-top: 2px solid var(--border); padding-top: 0;
+    }
+    .hero-org-tier {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 8px; min-width: 100px; position: relative;
+    }
+    .hero-org-tier::before {
+      content: ''; position: absolute; top: 0; left: 50%;
+      transform: translateX(-50%); width: 2px; height: 20px;
+      background: var(--border);
+    }
+    .hero-org-tier-label {
+      background: #1e3a5f; border: 1px solid #3b82f6;
+      color: #bfdbfe; padding: 5px 10px; border-radius: 6px;
+      font-size: 0.75rem; font-weight: 600; text-align: center;
+      white-space: nowrap; margin-top: 20px;
+    }
+    .hero-org-tier-label.paid {
+      background: #2d1a00; border-color: #f59e0b; color: #fde68a;
+    }
+    .hero-org-tier-sublabel {
+      font-size: 0.68rem; color: var(--muted); text-align: center;
+      margin-top: -4px; max-width: 100px;
+    }
+    .hero-org-heroes {
+      display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;
+    }
+    .hero-org-card {
+      display: flex; flex-direction: column; align-items: center;
+      background: #0f1117; border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 6px; width: 64px;
+      font-size: 0.65rem; color: var(--muted); text-align: center; gap: 4px;
+    }
+    .hero-org-card img {
+      width: 42px; height: 42px; border-radius: 50%;
+      object-fit: cover; border: 2px solid var(--border);
+    }
+    .hero-org-card span { line-height: 1.2; }
+
     details.hero-detail {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -1103,96 +1162,294 @@ timeline
   <hr />
 
   <!-- 十、具體建議 -->
-  <h2 id="s10">十、針對你目前進度的具體建議（四代）</h2>
+  <h2 id="s10">十、針對你目前進度的具體建議（從四代開始）</h2>
 
-  <h3>立即行動</h3>
-  <ol>
-    <li><strong>累積鑽石</strong></li>
-    <li>維持 <strong>Zoe + Petra + Rosa</strong> 為核心組合</li>
-  </ol>
+  <h3>英雄路線選擇圖</h3>
+  <div class="hero-org">
 
-  <h3>為五代做準備</h3>
-  <ol>
-    <li>存寶石 → 五代開放後第一時間抽 <strong>Long Fei</strong></li>
-    <li><strong>Long Fei</strong> 可作為零氪步兵替換 Zoe</li>
-    <li>又或者放棄五代的培養，為六代提早累積鑽石。</li>
-  </ol>
+    <!-- Gen 4 -->
+    <div class="hero-org-section">
+      <div class="hero-org-top">
+        <div class="hero-org-gentitle">🏰 第四代</div>
+        <div class="hero-org-vline"></div>
+        <div class="hero-org-tiers">
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P｜碎片不夠</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/B1u9hrOt-x.png" /><span>Zoe</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rkAHleHo-g.png" /><span>Rosa</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P｜~500黃色碎片</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rkAHleHo-g.png" /><span>Rosa</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">小課以上</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rkAHleHo-g.png" /><span>Rosa</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/B1YCglBoWg.png" /><span>Margot ★4</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <h3>為六代做準備</h3>
-  <ol>
-    <li><strong>Yang</strong> 是六代最優先培養目標。<strong>注意 Yang 是活動英雄、不是轉盤英雄</strong>——用<strong>通用英雄碎片</strong>升星，鑽石用不到。</li>
-    <li><strong>鑽石不要花在六代轉盤（Sophia 騎兵）</strong>，她與 Petra 重疊。把鑽石省下來給七代 Wee &amp; Woo。</li>
-    <li>持續累積<strong>通用英雄碎片</strong>給 Yang，並參與 Daily Deals / 英雄集結 / 最強領主 / Kingdom of Power 活動。</li>
-  </ol>
+    <!-- Gen 5 -->
+    <div class="hero-org-section">
+      <div class="hero-org-top">
+        <div class="hero-org-gentitle">⚔️ 第五代</div>
+        <div class="hero-org-vline"></div>
+        <div class="hero-org-tiers">
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P 不論用途</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" /><span>龍飛</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rkAHleHo-g.png" /><span>Rosa</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P 已投資Alcar 打熊</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rkAHleHo-g.png" /><span>Rosa</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">小課｜打熊</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rkAHleHo-g.png" /><span>Rosa</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">小課｜遠征競技場</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" /><span>龍飛</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/vivian-avatar-icon.webp" /><span>Vivian</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <h3>為七代做準備</h3>
-  <ol>
-    <li><strong>鑽石全留給 Wee &amp; Woo</strong>（七代轉盤弓兵）。可<strong>考慮放入車身</strong>，也是新版本競技場王。</li>
-    <li><strong>通用英雄碎片：Yang 優先，再來 Charles</strong>（活動取得，新駐防核心）。</li>
-    <li>Ava 透過英雄殿堂 / 劍域對決商店長期累積，車身首位提供 -25% 敵方防禦的乘法 Debuff，值得目標投資。</li>
-  </ol>
+    <!-- Gen 6 -->
+    <div class="hero-org-section">
+      <div class="hero-org-top">
+        <div class="hero-org-gentitle">🌟 第六代</div>
+        <div class="hero-org-vline"></div>
+        <div class="hero-org-tiers">
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P 主力<br><small style="font-weight:400">~500黃色碎片→Yang</small></div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" /><span>龍飛</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P 已投資Alcar 打熊</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">小課｜打熊</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">小課｜競技場遠征</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" /><span>龍飛</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <h3>你的目標陣容演進（主號 5 隻核心，打熊集結為主軸）</h3>
+    <!-- Gen 7 -->
+    <div class="hero-org-section">
+      <div class="hero-org-top">
+        <div class="hero-org-gentitle">💥 第七代</div>
+        <div class="hero-org-vline"></div>
+        <div class="hero-org-tiers">
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P 主力<br><small style="font-weight:400">~500黃色碎片→Ava</small></div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" /><span>龍飛</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" /><span>Ava</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P 主力<br><small style="font-weight:400">Ava未到位暫代</small></div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" /><span>龍飛</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P 已投資Alcar 打熊</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" /><span>Ava</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">小課｜打熊</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" /><span>Ava</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">小課｜遠征競技場</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/05/charles-avatar.webp" /><span>Charles</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" /><span>Ava</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="stage-path">
-    一代：Jabel + Saul<br />
-    &nbsp;&nbsp;↓<br />
-    二代：Zoe + Marlin + Jabel<br />
-    &nbsp;&nbsp;↓<br />
-    三代：Zoe + Marlin + Petra<br />
-    &nbsp;&nbsp;↓<br />
-    <span class="current">四代（現在）：Zoe + Petra + Margot + Rosa + Marlin</span><br />
-    &nbsp;&nbsp;↓<br />
-    五代：龍飛 + Zoe + Petra + Margot + Rosa<br />
-    &nbsp;&nbsp;↓<br />
-    六代：龍飛 + Yang + Petra + Margot + Rosa<br />
-    &nbsp;&nbsp;↓<br />
-    七代：龍飛 + Yang + Ava + Wee &amp; Woo + Rosa
   </div>
 
-  <h4>每次世代轉換的取捨理由</h4>
+  <h3>第四代：英雄配置</h3>
+  <p>四代的核心抉擇在於<strong>黃色通用碎片</strong>的量：</p>
   <div class="table-wrap"><table>
-    <thead><tr><th>世代轉換</th><th>淘汰</th><th>加入</th><th>理由</th></tr></thead>
+    <thead><tr><th>玩家類型</th><th>推薦三人組</th><th>說明</th></tr></thead>
     <tbody>
       <tr>
-        <td><strong>4 → 5</strong></td>
-        <td>Marlin</td>
-        <td>龍飛</td>
-        <td>Marlin 跟 Rosa 同為弓兵，角色重複，且「迷霧織者」進攻專武在後續世代會被新弓兵的基礎面板碾壓。<strong>龍飛</strong>是五代轉盤可得的 F2P 步兵新血，先把車頭隊的步兵 slot 升級到當代水準，為下一階段 Yang 上線做準備。</td>
+        <td><strong>F2P｜碎片不夠</strong></td>
+        <td>Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> ＋ Zoe <img src="https://hackmd.io/_uploads/B1u9hrOt-x.png" style="height:22px" /> ＋ Rosa <img src="https://hackmd.io/_uploads/rkAHleHo-g.png" style="height:22px" /></td>
+        <td>Zoe 免費步兵頂住車頭，Rosa 轉盤即可取得，免費且免疫減益。</td>
       </tr>
       <tr>
-        <td><strong>5 → 6</strong></td>
-        <td>Zoe</td>
-        <td>Yang</td>
-        <td><strong>Yang</strong> 是新世代車頭核心——Widget「Offensive Defense」給整支集結 <strong>+15% 致命性（乘法 Buff）</strong>，再加上 Avalanche（每 4 回合 +100%）+ Ice Zone（弓兵 +40% 期望）+ Ambush（每回合 +40% 機率）三層乘算，打熊長戰越打越強。Zoe 的角色被龍飛完全覆蓋（同為 F2P 步兵），停止投資碎片。</td>
+        <td><strong>F2P｜黃色碎片約 500 片</strong></td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> ＋ Rosa <img src="https://hackmd.io/_uploads/rkAHleHo-g.png" style="height:22px" /> ＋ Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /></td>
+        <td>以 500 片黃色碎片投資 Alcar，騎兵車頭上線，戰力大躍升。</td>
       </tr>
       <tr>
-        <td rowspan="2"><strong>6 → 7</strong></td>
-        <td>Petra</td>
-        <td>Ava</td>
-        <td>Petra 的真正價值是當車頭（騎兵集結 600% 爆發專武「命運之書」），但在 Yang 上位後 Petra 只能當車身——<strong>車身只生效第一遠征技能</strong>，等於浪費她的核心能力。<strong>Ava</strong> 的 Dissolution「-25% 敵方防禦」是全遊戲<strong>唯一</strong>的乘法防禦 Debuff，對熊極強；當車頭時 Widget Color Storm 又給整支集結 +15% 致命（適用全兵種），車頭備援也勝任。</td>
-      </tr>
-      <tr>
-        <td>Margot</td>
-        <td>Wee &amp; Woo</td>
-        <td>Margot 的第一遠征技能「全隊 +25% 攻擊」被 <strong>Wee &amp; Woo</strong> 的 Artillerymen（+15% 攻擊 + 10% 致命）<strong>嚴格升級</strong>——後者多給的 Lethality 是真正的乘法，前者只是加法。Wee &amp; Woo 同時也是競技場新王（全遊戲最高基礎攻擊 8,656 + 大招 High Ground 420% AoE）。</td>
+        <td><strong>小課以上</strong></td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> ＋ Rosa <img src="https://hackmd.io/_uploads/rkAHleHo-g.png" style="height:22px" /> ＋ Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> ＋ 四星 Margot <img src="https://hackmd.io/_uploads/B1YCglBoWg.png" style="height:22px" /></td>
+        <td>加入四星 Margot 讓第五隊也能出征集結，打熊傷害再上一層。</td>
       </tr>
     </tbody>
   </table></div>
 
-  <h4>七代終極打熊集結配置（步騎弓各一）</h4>
-  <ul>
-    <li><strong>車頭隊 3 人</strong>：Yang（弓兵車頭）+ 龍飛（步兵車身）+ Ava（騎兵車身）</li>
-    <li><strong>個別出征加入聯盟集結（剩餘 2 隻當車身首位）</strong>：Wee &amp; Woo（Artillerymen 全隊 +15% 攻 + 10% 致命，全遊戲最強車身技能）+ Rosa（Killing Energy 補充弓兵首位）</li>
-    <li><strong>競技場 5 人</strong>：龍飛（前排坦克）+ Yang + Wee &amp; Woo + Rosa（三弓爆發）+ Ava（中排副 DPS）</li>
-  </ul>
+  <h3>第五代：開始區分打熊 vs 遠征競技場</h3>
+  <p>五代起，兩種用途的最佳配置開始分歧，建議根據自身需求選擇方向。五代的 <strong>Longfei（龍飛）</strong> 是轉盤可抽的 F2P 步兵，整體而言五代世代相對過渡，可視情況略過大量投資直接蓄力六代。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>玩家類型</th><th>用途</th><th>推薦三人組</th></tr></thead>
+    <tbody>
+      <tr>
+        <td rowspan="2"><strong>F2P</strong></td>
+        <td>不論用途</td>
+        <td>Longfei <img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" style="height:22px" /> ＋ Rosa <img src="https://hackmd.io/_uploads/rkAHleHo-g.png" style="height:22px" /> ＋ Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td>打熊（已投資 Alcar）</td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> ＋ Rosa <img src="https://hackmd.io/_uploads/rkAHleHo-g.png" style="height:22px" /> ＋ Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" />（沿用四代陣容）</td>
+      </tr>
+      <tr>
+        <td rowspan="2"><strong>小課</strong></td>
+        <td>打熊</td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> ＋ Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> ＋ Rosa <img src="https://hackmd.io/_uploads/rkAHleHo-g.png" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td>遠征 ＆ 競技場</td>
+        <td>Longfei <img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" style="height:22px" /> ＋ Vivian <img src="https://kingshotdata.com/wp-content/uploads/2025/11/vivian-avatar-icon.webp" style="height:22px" /> ＋ Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /></td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <h3>第六代：Yang 正式上線，戰力分水嶺</h3>
+  <p><strong>Yang</strong> 是六代最重要的英雄，以<strong>黃色通用碎片</strong>升星（非轉盤，不需鑽石）。鑽石不要花在六代轉盤（Sophia），省下來備戰七代。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>玩家類型</th><th>用途</th><th>推薦三人組</th></tr></thead>
+    <tbody>
+      <tr>
+        <td rowspan="2"><strong>F2P</strong></td>
+        <td>主力（黃色碎片約 500 片投資 Yang）</td>
+        <td>Longfei <img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" style="height:22px" /> ＋ Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> ＋ Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td>打熊（已投資 Alcar）</td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> ＋ Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> ＋ Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td rowspan="2"><strong>小課</strong></td>
+        <td>打熊</td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> ＋ Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> ＋ Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td>競技場 ＆ 遠征</td>
+        <td>Longfei <img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" style="height:22px" /> ＋ Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /> ＋ Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /></td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <h3>第七代：Wee &amp; Woo 當車身，三強組合成型</h3>
+  <p>七代重點：<strong>Wee &amp; Woo</strong>（七代轉盤弓兵，鑽石抽）可當<strong>車身英雄</strong>釋放其強力車身技，不必搶車頭。<strong>Ava</strong> 透過英雄殿堂 / 劍域對決商店長期累積，黃色碎片約 500 片可加速培養。小課玩家遠征競技場的終極答案是 <strong>Charles ＋ Yang ＋ Ava</strong> 三強組合。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>玩家類型</th><th>用途</th><th>推薦三人組</th></tr></thead>
+    <tbody>
+      <tr>
+        <td rowspan="2"><strong>F2P</strong></td>
+        <td>主力（黃色碎片~500 片投資 Ava）</td>
+        <td>Longfei <img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" style="height:22px" /> ＋ Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /> ＋ Ava <img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td>主力（Ava 未到位時暫代）</td>
+        <td>Longfei <img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" style="height:22px" /> ＋ Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /> ＋ Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td><strong>F2P（已投資 Alcar）</strong></td>
+        <td>打熊</td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> ＋ Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /> ＋ Ava <img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td rowspan="2"><strong>小課</strong></td>
+        <td>打熊</td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> ＋ Ava <img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" style="height:22px" /> ＋ Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td>遠征 ＆ 競技場</td>
+        <td>Charles <img src="https://kingshotdata.com/wp-content/uploads/2026/05/charles-avatar.webp" style="height:22px" /> ＋ Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /> ＋ Ava <img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" style="height:22px" /></td>
+      </tr>
+    </tbody>
+  </table></div>
 
   <blockquote>
-    <strong>碎片預算驗證</strong>：主號 400 片 + 2 片/天，半年後可累積至 ~760 片。
+    <strong>碎片 &amp; 鑽石預算重點</strong>：
     <ul>
-      <li><strong>六代</strong>：所有碎片全力衝 <strong>Yang</strong>（活動取得，非轉盤，吃通用碎片），不要分散投資 Margot / Petra（屬於停止新投資）。</li>
-      <li><strong>七代</strong>：<strong>鑽石</strong>全部砸 <strong>Wee &amp; Woo</strong>（七代轉盤弓兵，需要鑽石抽）；<strong>通用碎片</strong>繼續餵 Yang 直到滿星，再分配給 <strong>Ava</strong>（英雄殿堂 / 劍域對決商店取得）。</li>
-      <li>如果 Ava 來不及，七代開放第一階段先用「龍飛 + Yang + Petra（暫留）」打熊，等 Ava 補上後 Petra 才退役。</li>
+      <li><strong>黃色通用碎片</strong>：四代投 Alcar（~500 片）→ 六代投 Yang（~500 片）→ 七代投 Ava（~500 片）。每個世代約需 500 片做關鍵躍升。</li>
+      <li><strong>鑽石</strong>：四代不花（或抽 Alcar 轉盤）→ 五代抽 Longfei → 六代不花（跳過 Sophia）→ 七代全力砸 <strong>Wee &amp; Woo</strong>。</li>
+      <li><strong>通用碎片</strong>六代全力 Yang；七代 Yang 滿星後轉 Ava 或 Charles（活動英雄）。</li>
     </ul>
   </blockquote>
 

@@ -118,6 +118,58 @@
     }
     .stage-path .current { color: var(--accent); font-weight: 700; }
 
+    /* Hero Org Chart */
+    .hero-org { margin: 20px 0; }
+    .hero-org-section { margin-bottom: 36px; }
+    .hero-org-top { display: flex; flex-direction: column; align-items: center; }
+    .hero-org-gentitle {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, #1e2a45, #111827);
+      border: 2px solid var(--accent); border-radius: 10px;
+      padding: 8px 24px; font-weight: 700; font-size: 1rem;
+      color: var(--accent); position: relative; z-index: 1;
+    }
+    .hero-org-vline {
+      width: 2px; height: 20px; background: var(--border); margin: 0 auto;
+    }
+    .hero-org-tiers {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      justify-content: center; width: 100%;
+      border-top: 2px solid var(--border); padding-top: 0;
+    }
+    .hero-org-tier {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 8px; min-width: 100px; position: relative;
+    }
+    .hero-org-tier::before {
+      content: ''; position: absolute; top: 0; left: 50%;
+      transform: translateX(-50%); width: 2px; height: 20px;
+      background: var(--border);
+    }
+    .hero-org-tier-label {
+      background: #1e3a5f; border: 1px solid #3b82f6;
+      color: #bfdbfe; padding: 5px 10px; border-radius: 6px;
+      font-size: 0.75rem; font-weight: 600; text-align: center;
+      white-space: nowrap; margin-top: 20px;
+    }
+    .hero-org-tier-label.paid {
+      background: #2d1a00; border-color: #f59e0b; color: #fde68a;
+    }
+    .hero-org-heroes {
+      display: flex; gap: 6px; flex-wrap: wrap; justify-content: center;
+    }
+    .hero-org-card {
+      display: flex; flex-direction: column; align-items: center;
+      background: #0f1117; border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 6px; width: 64px;
+      font-size: 0.65rem; color: var(--muted); text-align: center; gap: 4px;
+    }
+    .hero-org-card img {
+      width: 42px; height: 42px; border-radius: 50%;
+      object-fit: cover; border: 2px solid var(--border);
+    }
+    .hero-org-card span { line-height: 1.2; }
+
     details.hero-detail {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -1102,96 +1154,294 @@ timeline
   <hr />
 
   <!-- 10. Specific Advice for Your Current Progress -->
-  <h2 id="s10">10. Specific Advice for Your Current Progress (Gen 4)</h2>
+  <h2 id="s10">10. Specific Advice for Your Current Progress (Gen 4 Onward)</h2>
 
-  <h3>Immediate Actions</h3>
-  <ol>
-    <li><strong>Stockpile gems</strong></li>
-    <li>Keep <strong>Zoe + Petra + Rosa</strong> as your core trio</li>
-  </ol>
+  <h3>Hero Path Chart</h3>
+  <div class="hero-org">
 
-  <h3>Preparing for Gen 5</h3>
-  <ol>
-    <li>Save gems → pull <strong>Long Fei</strong> as soon as Gen 5 opens</li>
-    <li><strong>Long Fei</strong> can replace Zoe as your F2P infantry pick</li>
-    <li>Alternatively, skip Gen 5 investment and stockpile diamonds early for Gen 6.</li>
-  </ol>
+    <!-- Gen 4 -->
+    <div class="hero-org-section">
+      <div class="hero-org-top">
+        <div class="hero-org-gentitle">🏰 Gen 4</div>
+        <div class="hero-org-vline"></div>
+        <div class="hero-org-tiers">
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P — not enough shards</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/B1u9hrOt-x.png" /><span>Zoe</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rkAHleHo-g.png" /><span>Rosa</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P — ~500 yellow shards</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rkAHleHo-g.png" /><span>Rosa</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">Light spender+</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rkAHleHo-g.png" /><span>Rosa</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/B1YCglBoWg.png" /><span>Margot ★4</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <h3>Preparing for Gen 6</h3>
-  <ol>
-    <li><strong>Yang</strong> is the top Gen 6 investment target. <strong>Important: Yang is an event hero, NOT a roulette hero</strong> — star him up with <strong>Universal Hero Shards</strong>; gems don't help.</li>
-    <li><strong>Do NOT burn gems on the Gen 6 roulette (Sophia, cavalry)</strong> — she overlaps with Petra. Save the gems for Gen 7's Wee &amp; Woo instead.</li>
-    <li>Keep stockpiling Universal Hero Shards for Yang, and join Daily Deals / Hero Rally / Strongest Governor / Kingdom of Power events.</li>
-  </ol>
+    <!-- Gen 5 -->
+    <div class="hero-org-section">
+      <div class="hero-org-top">
+        <div class="hero-org-gentitle">⚔️ Gen 5</div>
+        <div class="hero-org-vline"></div>
+        <div class="hero-org-tiers">
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P — any purpose</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" /><span>Long Fei</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rkAHleHo-g.png" /><span>Rosa</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P — Alcar Bear Hunt</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rkAHleHo-g.png" /><span>Rosa</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">Light — Bear Hunt</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rkAHleHo-g.png" /><span>Rosa</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">Light — Expedition / Arena</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" /><span>Long Fei</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/vivian-avatar-icon.webp" /><span>Vivian</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <h3>Preparing for Gen 7</h3>
-  <ol>
-    <li><strong>All gems → Wee &amp; Woo</strong> (Gen 7 roulette archer). <strong>Consider running him as a rally rider</strong>, and he's the new Arena king.</li>
-    <li><strong>Universal Hero Shards: Yang first, then Charles</strong> (event hero, the new garrison core).</li>
-    <li>Slowly accumulate Ava via Hall of Heroes / Swordland Showdown Shop — her Dissolution rider effect (-25% enemy Defense, multiplicative) makes her worth long-term shard collection.</li>
-  </ol>
+    <!-- Gen 6 -->
+    <div class="hero-org-section">
+      <div class="hero-org-top">
+        <div class="hero-org-gentitle">🌟 Gen 6</div>
+        <div class="hero-org-vline"></div>
+        <div class="hero-org-tiers">
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P main<br><small style="font-weight:400">~500 shards → Yang</small></div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" /><span>Long Fei</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P — Alcar Bear Hunt</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">Light — Bear Hunt</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">Light — Arena / Expedition</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" /><span>Long Fei</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <h3>Your Target Lineup Progression (Main Account: 5-Hero Core, Bear Hunt Rally Leading Focus)</h3>
+    <!-- Gen 7 -->
+    <div class="hero-org-section">
+      <div class="hero-org-top">
+        <div class="hero-org-gentitle">💥 Gen 7</div>
+        <div class="hero-org-vline"></div>
+        <div class="hero-org-tiers">
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P main<br><small style="font-weight:400">~500 shards → Ava</small></div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" /><span>Long Fei</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" /><span>Ava</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P — Ava stand-in</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" /><span>Long Fei</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" /><span>Petra</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label">F2P — Alcar Bear Hunt</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" /><span>Ava</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">Light — Bear Hunt</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" /><span>Alcar</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" /><span>Ava</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+            </div>
+          </div>
+          <div class="hero-org-tier">
+            <div class="hero-org-tier-label paid">Light — Expedition / Arena</div>
+            <div class="hero-org-heroes">
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/05/charles-avatar.webp" /><span>Charles</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" /><span>Yang</span></div>
+              <div class="hero-org-card"><img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" /><span>Ava</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="stage-path">
-    Gen 1: Jabel + Saul<br />
-    &nbsp;&nbsp;↓<br />
-    Gen 2: Zoe + Marlin + Jabel<br />
-    &nbsp;&nbsp;↓<br />
-    Gen 3: Zoe + Marlin + Petra<br />
-    &nbsp;&nbsp;↓<br />
-    <span class="current">Gen 4 (now): Zoe + Petra + Margot + Rosa + Marlin</span><br />
-    &nbsp;&nbsp;↓<br />
-    Gen 5: Long Fei + Zoe + Petra + Margot + Rosa<br />
-    &nbsp;&nbsp;↓<br />
-    Gen 6: Long Fei + Yang + Petra + Margot + Rosa<br />
-    &nbsp;&nbsp;↓<br />
-    Gen 7: Long Fei + Yang + Ava + Wee &amp; Woo + Rosa
   </div>
 
-  <h4>Reasoning for Each Generational Swap</h4>
+  <h3>Gen 4: Hero Configuration</h3>
+  <p>The key Gen 4 decision is how many <strong>yellow universal shards</strong> you have:</p>
   <div class="table-wrap"><table>
-    <thead><tr><th>Transition</th><th>Drop</th><th>Add</th><th>Reasoning</th></tr></thead>
+    <thead><tr><th>Player Type</th><th>Recommended Trio</th><th>Notes</th></tr></thead>
     <tbody>
       <tr>
-        <td><strong>4 → 5</strong></td>
-        <td>Marlin</td>
-        <td>Long Fei</td>
-        <td>Marlin overlaps with Rosa in the archer slot, and the "Mistweaver" offensive SigW gets outclassed by newer archers' base stats. <strong>Long Fei</strong> is the Gen 5 roulette F2P infantry — upgrade the leader squad's infantry slot to current-gen now, in preparation for Yang's arrival.</td>
+        <td><strong>F2P — not enough shards</strong></td>
+        <td>Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> + Zoe <img src="https://hackmd.io/_uploads/B1u9hrOt-x.png" style="height:22px" /> + Rosa <img src="https://hackmd.io/_uploads/rkAHleHo-g.png" style="height:22px" /></td>
+        <td>Zoe is free infantry holding the leader slot; Rosa is available from the roulette, fully immune to debuffs.</td>
       </tr>
       <tr>
-        <td><strong>5 → 6</strong></td>
-        <td>Zoe</td>
-        <td>Yang</td>
-        <td><strong>Yang</strong> is the new generational rally-leader core — his "Offensive Defense" widget grants the whole rally <strong>+15% Lethality (multiplicative)</strong>, layered with Avalanche (+100% every 4 turns) + Ice Zone (+40% expected on archers) + Ambush (40% chance/turn). The longer the Bear Hunt drags on, the stronger he gets. Zoe's role is fully replaced by Long Fei (both F2P infantry), so stop investing shards in her.</td>
+        <td><strong>F2P — ~500 yellow shards</strong></td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> + Rosa <img src="https://hackmd.io/_uploads/rkAHleHo-g.png" style="height:22px" /> + Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /></td>
+        <td>Invest ~500 shards into Alcar for a cavalry rally leader — a significant power jump.</td>
       </tr>
       <tr>
-        <td rowspan="2"><strong>6 → 7</strong></td>
-        <td>Petra</td>
-        <td>Ava</td>
-        <td>Petra's true value is as a rally leader (cavalry rally SigW "Book of Fate" with 600% burst potential), but once Yang takes over the leader slot Petra is demoted to rider — and <strong>riders only contribute their first expedition skill</strong>, wasting her core power. <strong>Ava</strong>'s Dissolution "-25% enemy Defense" is the <strong>only multiplicative defense debuff in the game</strong>, devastating against Bear; and her Color Storm widget gives +15% Rally Lethality (universal), making her a fully viable backup rally leader too.</td>
-      </tr>
-      <tr>
-        <td>Margot</td>
-        <td>Wee &amp; Woo</td>
-        <td>Margot's first expedition skill "+25% Squad Attack" is <strong>strictly outclassed</strong> by <strong>Wee &amp; Woo</strong>'s Artillerymen (+15% Attack + 10% Lethality) — the extra Lethality is a true multiplier where pure Attack is additive. Wee &amp; Woo is simultaneously the new Arena king (game's highest base attack at 8,656 + High Ground 420% AoE ultimate).</td>
+        <td><strong>Light spender+</strong></td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> + Rosa <img src="https://hackmd.io/_uploads/rkAHleHo-g.png" style="height:22px" /> + Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> + 4-star Margot <img src="https://hackmd.io/_uploads/B1YCglBoWg.png" style="height:22px" /></td>
+        <td>Adding 4-star Margot lets a 5th march join rallies, increasing total Bear Hunt damage.</td>
       </tr>
     </tbody>
   </table></div>
 
-  <h4>Endgame Gen 7 Bear Hunt Stack (One of each troop type)</h4>
-  <ul>
-    <li><strong>Leader squad (3 heroes)</strong>: Yang (archer leader) + Long Fei (infantry rider) + Ava (cavalry rider)</li>
-    <li><strong>Solo marches joining alliance rallies (remaining 2 heroes as rider slot #1)</strong>: Wee &amp; Woo (Artillerymen +15% Atk +10% Lethality team-wide — the strongest rider skill in the game) + Rosa (Killing Energy, second-best archer rider skill)</li>
-    <li><strong>Arena 5-hero comp</strong>: Long Fei (front tank) + Yang + Wee &amp; Woo + Rosa (3-archer back-row burst) + Ava (mid-row sub-DPS)</li>
-  </ul>
+  <h3>Gen 5: Bear Hunt vs. Expedition/Arena Split Begins</h3>
+  <p>From Gen 5 onward, the optimal trio diverges by purpose. <strong>Long Fei</strong> is a Gen 5 roulette infantry hero available to F2P. Gen 5 is generally a transitional generation — consider investing lightly and saving resources for Gen 6.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Player Type</th><th>Purpose</th><th>Recommended Trio</th></tr></thead>
+    <tbody>
+      <tr>
+        <td rowspan="2"><strong>F2P</strong></td>
+        <td>Any purpose</td>
+        <td>Long Fei <img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" style="height:22px" /> + Rosa <img src="https://hackmd.io/_uploads/rkAHleHo-g.png" style="height:22px" /> + Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td>Bear Hunt (already invested Alcar)</td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> + Rosa <img src="https://hackmd.io/_uploads/rkAHleHo-g.png" style="height:22px" /> + Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> (carry over Gen 4 lineup)</td>
+      </tr>
+      <tr>
+        <td rowspan="2"><strong>Light spender</strong></td>
+        <td>Bear Hunt</td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> + Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> + Rosa <img src="https://hackmd.io/_uploads/rkAHleHo-g.png" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td>Expedition &amp; Arena</td>
+        <td>Long Fei <img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" style="height:22px" /> + Vivian <img src="https://kingshotdata.com/wp-content/uploads/2025/11/vivian-avatar-icon.webp" style="height:22px" /> + Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /></td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <h3>Gen 6: Yang Arrives — Major Power Milestone</h3>
+  <p><strong>Yang</strong> is the most important Gen 6 hero. Star him up with <strong>yellow universal shards</strong> (event hero, NOT roulette — gems don't help). Do NOT spend gems on the Gen 6 roulette (Sophia); save them for Gen 7.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Player Type</th><th>Purpose</th><th>Recommended Trio</th></tr></thead>
+    <tbody>
+      <tr>
+        <td rowspan="2"><strong>F2P</strong></td>
+        <td>Main force (~500 yellow shards into Yang)</td>
+        <td>Long Fei <img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" style="height:22px" /> + Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> + Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td>Bear Hunt (already invested Alcar)</td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> + Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> + Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td rowspan="2"><strong>Light spender</strong></td>
+        <td>Bear Hunt</td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> + Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> + Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td>Arena &amp; Expedition</td>
+        <td>Long Fei <img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" style="height:22px" /> + Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /> + Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /></td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <h3>Gen 7: Wee &amp; Woo as a Rider — Three-Pillar Endgame</h3>
+  <p>Gen 7 key points: <strong>Wee &amp; Woo</strong> (Gen 7 roulette archer, pulled with gems) can run as a <strong>rider hero</strong> to unleash their powerful rider skill without competing for the leader slot. <strong>Ava</strong> is obtained through Hall of Heroes / Swordland Showdown Shop over time; ~500 yellow shards accelerates her. Light spenders' endgame answer for Expedition &amp; Arena is the triple-threat combo <strong>Charles + Yang + Ava</strong>.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Player Type</th><th>Purpose</th><th>Recommended Trio</th></tr></thead>
+    <tbody>
+      <tr>
+        <td rowspan="2"><strong>F2P</strong></td>
+        <td>Main force (~500 yellow shards into Ava)</td>
+        <td>Long Fei <img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" style="height:22px" /> + Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /> + Ava <img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td>Main force (Ava not ready yet)</td>
+        <td>Long Fei <img src="https://kingshotdata.com/wp-content/uploads/2025/11/long-fei-avatar-icon.webp" style="height:22px" /> + Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /> + Petra <img src="https://hackmd.io/_uploads/rJnlgIOKbg.png" style="height:22px" /> (stand-in)</td>
+      </tr>
+      <tr>
+        <td><strong>F2P (already invested Alcar)</strong></td>
+        <td>Bear Hunt</td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> + Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /> + Ava <img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td rowspan="2"><strong>Light spender</strong></td>
+        <td>Bear Hunt</td>
+        <td>Alcar <img src="https://hackmd.io/_uploads/H1eTlgHiZx.png" style="height:22px" /> + Ava <img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" style="height:22px" /> + Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /></td>
+      </tr>
+      <tr>
+        <td>Expedition &amp; Arena</td>
+        <td>Charles <img src="https://kingshotdata.com/wp-content/uploads/2026/05/charles-avatar.webp" style="height:22px" /> + Yang <img src="https://kingshotdata.com/wp-content/uploads/2026/02/yang-avatar-icon.webp" style="height:22px" /> + Ava <img src="https://kingshotdata.com/wp-content/uploads/2026/05/ava-avatar-image.webp" style="height:22px" /></td>
+      </tr>
+    </tbody>
+  </table></div>
 
   <blockquote>
-    <strong>Shard Budget Validation</strong>: Main has ~400 shards + 2/day, growing to ~760 in 6 months.
+    <strong>Shard &amp; Gem Budget Summary</strong>:
     <ul>
-      <li><strong>Gen 6</strong>: Funnel <strong>every</strong> universal shard into <strong>Yang</strong> (event hero, NOT roulette — only universal shards work). Stop new investment in Margot / Petra.</li>
-      <li><strong>Gen 7</strong>: <strong>Gems</strong> → <strong>Wee &amp; Woo</strong> (Gen 7 roulette archer, requires gem pulls). <strong>Universal shards</strong> → keep feeding Yang until max stars, then divert to <strong>Ava</strong> (obtained via Hall of Heroes / Swordland Showdown Shop).</li>
-      <li>If Ava is slow to acquire, run a transitional Gen 7 stack of "Long Fei + Yang + Petra (held over)" for Bear Hunt until Ava catches up, then retire Petra.</li>
+      <li><strong>Yellow universal shards</strong>: Gen 4 → Alcar (~500) → Gen 6 → Yang (~500) → Gen 7 → Ava (~500). Each generation needs roughly 500 shards for the key power leap.</li>
+      <li><strong>Gems</strong>: Gen 4 (roulette or save) → Gen 5 pull Long Fei → Gen 6 skip Sophia → Gen 7 <strong>all-in on Wee &amp; Woo</strong>.</li>
+      <li><strong>Universal shards</strong>: Gen 6 funnel entirely into Yang; Gen 7 after Yang max-stars, redirect to Ava or Charles (event hero).</li>
     </ul>
   </blockquote>
 
